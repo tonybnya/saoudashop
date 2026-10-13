@@ -28,7 +28,7 @@ const wa = (txt) => "https://wa.me/" + WA + "?text=" + encodeURIComponent(txt);
 function can(p, big) {
   const age = T[lang] ? t("f").replace("{a}", p.age) : "";
   return (
-    `<div class="can" style="background:${p.c}${big ? ";width:110px;height:150px;margin:0 -8px" : ""}">` +
+    `<div class="can${big ? " big" : ""}" style="background:${p.c}">` +
     `<img src="${p.img}" alt="${p.n}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff">` +
     `<i style="z-index:1">${age}</i></div>`
   );
