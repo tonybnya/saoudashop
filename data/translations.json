@@ -6,10 +6,10 @@
     "lead": "Choisissez selon l'âge de bébé, envoyez votre commande sur WhatsApp, payez en espèces ou par Mobile Money à la livraison.",
     "ctaWa": "Commander sur WhatsApp",
     "ctaCat": "Voir les céréales",
-    "t1": "🇫🇷 Produits importés de France",
-    "t2": "📅 Date de péremption vérifiée avant chaque livraison",
-    "t3": "🛵 Livraison à Douala par moto-taxi",
-    "t4": "💳 Espèces, MTN MoMo ou Orange Money",
+    "t1": "Produits importés de France",
+    "t2": "Date de péremption vérifiée",
+    "t3": "Livraison à Douala",
+    "t4": "Espèces, MoMo ou OM",
     "catH": "Nos céréales",
     "catS": "Même prix pour toutes : 5 000 FCFA la boîte. Filtrez par âge indiqué sur la boîte.",
     "all": "Toutes",
@@ -68,7 +68,7 @@
     "fb": "Voir notre page Facebook",
     "call": "Appeler",
     "disc": "Revendeur indépendant, non affilié à Nestlé. Nestlé, Babicao, Babimiel, Babivanille et P'tite Céréale sont des marques de leurs propriétaires.",
-    "footTag": "Céréales bébé livrées à Douala",
+    "footTag": "Céréales livrées à Douala",
     "rights": "© {y} SaoudaShop. Tous droits réservés.",
     "disc2": "Les informations d'âge et de composition sont celles figurant sur les boîtes. Elles ne remplacent pas l'avis d'un professionnel de santé.",
     "hello": "Bonjour, je souhaite des informations sur les céréales pour bébé.",
@@ -87,10 +87,10 @@
     "lead": "Pick by your baby's age, send your order on WhatsApp, pay cash or Mobile Money on delivery.",
     "ctaWa": "Order on WhatsApp",
     "ctaCat": "See the cereals",
-    "t1": "🇫🇷 Imported from France",
-    "t2": "📅 Expiry date checked before every delivery",
-    "t3": "🛵 Moto-taxi delivery in Douala",
-    "t4": "💳 Cash, MTN MoMo or Orange Money",
+    "t1": "Imported from France",
+    "t2": "Expiry date checked",
+    "t3": "Delivery in Douala",
+    "t4": "Cash, MoMo or OM",
     "catH": "Our cereals",
     "catS": "One price for all: 5,000 FCFA per box. Filter by the age shown on the box.",
     "all": "All",
@@ -162,3 +162,4 @@
     "cl": "Contact message"
   }
 }
+

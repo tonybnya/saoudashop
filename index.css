@@ -803,15 +803,75 @@ header.scrolled {
 .trust li {
   background: var(--sf);
   border: 1px solid var(--bd);
-  border-radius: 14px;
-  padding: 10px 14px;
+  border-radius: 18px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
   transition:
     transform var(--resize-dur) var(--resize-ease),
     box-shadow var(--resize-dur) var(--resize-ease);
 }
 .trust li:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow);
+}
+.trust li:hover .tico i {
+  animation: wiggle 450ms ease;
+}
+.tico {
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.tico i {
+  font-size: 1.45rem;
+  display: inline-flex;
+}
+.tico.t1 {
+  background: #dcebfb;
+  color: #1f6ab0;
+}
+.tico.t2 {
+  background: #d9f2e3;
+  color: #15803d;
+}
+.tico.t3 {
+  background: #ffe7c7;
+  color: #c05f0a;
+}
+.tico.t4 {
+  background: #e4e0fb;
+  color: #5b4bc4;
+}
+.trust.rv.in li {
+  animation: rise 550ms var(--resize-ease) both;
+}
+.trust.rv.in li:nth-child(2) {
+  animation-delay: 70ms;
+}
+.trust.rv.in li:nth-child(3) {
+  animation-delay: 140ms;
+}
+.trust.rv.in li:nth-child(4) {
+  animation-delay: 210ms;
+}
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  30% {
+    transform: rotate(-10deg) scale(1.08);
+  }
+  60% {
+    transform: rotate(8deg);
+  }
 }
 .age button {
   transition:
