@@ -67,7 +67,7 @@ function render() {
   <div class="qty"><span class="pr">${fmt(PRICE)}</span><div class="q"><button data-m="${p.id}" aria-label="-"><i class="hgi-stroke hgi-minus-sign" aria-hidden="true"></i></button><output>${cart[p.id] || 0}</output><button data-p="${p.id}" aria-label="+"><i class="hgi-stroke hgi-plus-sign" aria-hidden="true"></i></button></div></div></article>`,
     )
     .join("");
-  $("#faq").innerHTML = t("faq")
+  $("#faqList").innerHTML = t("faq")
     .map((f) => `<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`)
     .join("");
   sum();
