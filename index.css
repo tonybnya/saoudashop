@@ -360,27 +360,68 @@ header .w {
   top: 12px;
   right: 12px;
 }
-.modal .mimgs {
-  display: grid;
-  gap: 12px;
-}
-@media (min-width: 640px) {
-  .modal .mimgs {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.modal .mimgs img {
-  width: 100%;
+.slider {
+  position: relative;
+  overflow: hidden;
   border-radius: 16px;
   border: 1px solid var(--bd);
   background: #fff;
+}
+.strack {
+  display: flex;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.slide {
+  min-width: 100%;
+  display: grid;
+  place-items: center;
+}
+.slide img {
+  width: 100%;
+  max-height: 440px;
   object-fit: contain;
+  display: block;
 }
-#mBoite {
-  max-height: 420px;
+.sprev,
+.snext {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  width: 40px;
+  padding: 0;
+  box-shadow: var(--shadow);
 }
-#mFiche {
-  max-height: 420px;
+.sprev {
+  left: 10px;
+}
+.snext {
+  right: 10px;
+}
+.snav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mu);
+}
+.sdots {
+  display: inline-flex;
+  gap: 6px;
+}
+.sdots button {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  background: var(--bd);
+  cursor: pointer;
+}
+.sdots button[aria-current="true"] {
+  background: var(--pr);
+  transform: scale(1.25);
 }
 .modal .mfoot {
   display: flex;

@@ -110,24 +110,38 @@ function sum() {
   }
 }
 
+let mImgs = [],
+  mIdx = 0;
+
+function showSlide(i) {
+  if (!mImgs.length) return;
+  mIdx = (i + mImgs.length) % mImgs.length;
+  $("#mTrack").style.transform = `translateX(-${mIdx * 100}%)`;
+  $("#mDots").innerHTML = mImgs
+    .map(
+      (_, d) =>
+        `<button data-d="${d}" aria-label="${d + 1}" aria-current="${d === mIdx}"></button>`
+    )
+    .join("");
+  $("#mCount").textContent = `${mIdx + 1} / ${mImgs.length}`;
+  const solo = mImgs.length < 2;
+  $("#mPrev").style.display = solo ? "none" : "";
+  $("#mNext").style.display = solo ? "none" : "";
+  $("#mDots").style.display = solo ? "none" : "";
+}
+
 function openModal(id) {
   const p = P.find((x) => x.id === id);
   if (!p) return;
   $("#mTitle").textContent = `${p.n} – ${p.w}`;
   $("#mSub").textContent =
     `${p[lang]} · ${t("f").replace("{a}", p.age)} · ${fmt(PRICE)}`;
-  const boite = $("#mBoite");
-  boite.src = p.img;
-  boite.alt = p.n;
-  const fiche = $("#mFiche");
-  if (p.fiche) {
-    fiche.src = p.fiche;
-    fiche.alt = p.n;
-    fiche.style.display = "";
-  } else {
-    fiche.removeAttribute("src");
-    fiche.style.display = "none";
-  }
+  mImgs = [{ src: p.img, alt: p.n }];
+  if (p.fiche) mImgs.push({ src: p.fiche, alt: p.n });
+  $("#mTrack").innerHTML = mImgs
+    .map((g) => `<div class="slide"><img src="${g.src}" alt="${g.alt}"></div>`)
+    .join("");
+  showSlide(0);
   $("#mIng").textContent = p.ing[lang];
   $("#mPrice").textContent = fmt(PRICE);
   $("#modal").hidden = false;
@@ -257,8 +271,35 @@ $("#mClose").onclick = closeModal;
 $("#modal").addEventListener("click", (e) => {
   if (e.target === $("#modal")) closeModal();
 });
+$("#mPrev").onclick = (e) => {
+  e.stopPropagation();
+  showSlide(mIdx - 1);
+};
+$("#mNext").onclick = (e) => {
+  e.stopPropagation();
+  showSlide(mIdx + 1);
+};
+$("#mDots").onclick = (e) => {
+  const d = e.target.closest("[data-d]");
+  if (d) showSlide(+d.dataset.d);
+};
+let mTouchX = null;
+$("#mSlider").addEventListener(
+  "touchstart",
+  (e) => (mTouchX = e.touches[0].clientX),
+  { passive: true }
+);
+$("#mSlider").addEventListener("touchend", (e) => {
+  if (mTouchX === null) return;
+  const dx = e.changedTouches[0].clientX - mTouchX;
+  if (Math.abs(dx) > 40) showSlide(mIdx + (dx < 0 ? 1 : -1));
+  mTouchX = null;
+});
 addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !$("#modal").hidden) closeModal();
+  if ($("#modal").hidden) return;
+  if (e.key === "Escape") closeModal();
+  if (e.key === "ArrowLeft") showSlide(mIdx - 1);
+  if (e.key === "ArrowRight") showSlide(mIdx + 1);
 });
 
 const io = new IntersectionObserver(
