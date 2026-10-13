@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>SaoudaShop – Céréales bébé à Douala, 5 000 FCFA la boîte</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css" />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+  </head>
+  <body>
+    <header>
+      <div class="w">
+        <a class="logo" href="#top"><img src="assets/logo.png" alt="SaoudaShop" width="40" height="40" /> <span data-t="brand"></span></a>
+        <a class="ib cart" id="cartBtn" href="#commande" aria-label="Panier / Basket"><i class="hgi-stroke hgi-shopping-cart-01" aria-hidden="true"></i> <span class="n" id="cartN">0</span></a>
+        <button class="ib" id="lang" aria-label="Langue / Language"><i class="hgi-stroke hgi-translate" aria-hidden="true"></i> <span id="langLabel">EN</span></button>
+        <button class="ib icon-btn" id="theme" aria-label="Clair / sombre"><i class="hgi-stroke hgi-moon-02 i-moon" aria-hidden="true"></i><i class="hgi-stroke hgi-sun-01 i-sun" aria-hidden="true"></i></button>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="hero">
+        <div class="w">
+          <div>
+            <span class="price" data-t="price"></span>
+            <h1 data-t="h1"></h1>
+            <p data-t="lead"></p>
+            <div class="row">
+              <a class="btn wa" data-wa="hello" href="#"
+                ><i class="hgi-stroke hgi-whatsapp" aria-hidden="true"></i> <span data-t="ctaWa"></span
+              ></a>
+              <a class="btn o" href="#catalogue" data-t="ctaCat"></a>
+            </div>
+          </div>
+          <div class="stack" aria-hidden="true" id="heroCans"></div>
+        </div>
+      </div>
+
+      <div class="trust rv">
+        <div class="w">
+          <ul>
+            <li data-t="t1"></li>
+            <li data-t="t2"></li>
+            <li data-t="t3"></li>
+            <li data-t="t4"></li>
+          </ul>
+        </div>
+      </div>
+
+      <section id="catalogue" class="rv">
+        <div class="w">
+          <h2 data-t="catH"></h2>
+          <p class="sub" data-t="catS"></p>
+          <div class="age" id="age" role="group"></div>
+          <div class="grid" id="grid"></div>
+        </div>
+      </section>
+
+      <section id="commande" class="rv" style="background: var(--soft)">
+        <div class="w">
+          <h2 data-t="ordH"></h2>
+          <p class="sub" data-t="ordS"></p>
+          <form id="order">
+            <div class="sum" id="sum"></div>
+            <div class="two">
+              <label
+                ><span data-t="name"></span
+                ><input id="o-name" required autocomplete="name"
+              /></label>
+              <label
+                ><span data-t="district"></span
+                ><input id="o-dist" required list="qts" autocomplete="off"
+              /></label>
+            </div>
+            <datalist id="qts">
+              <option>Akwa</option>
+              <option>Bonanjo</option>
+              <option>Bonapriso</option>
+              <option>Bonamoussadi</option>
+              <option>Makepe</option>
+              <option>Kotto</option>
+              <option>Logpom</option>
+              <option>Deido</option>
+              <option>Bali</option>
+              <option>Bonabéri</option>
+              <option>Ndokotti</option>
+              <option>Logbessou</option>
+            </datalist>
+            <label
+              ><span data-t="pay"></span>
+              <select id="o-pay">
+                <option value="cash" data-t="cash"></option>
+                <option value="MTN MoMo">MTN MoMo</option>
+                <option value="Orange Money">Orange Money</option>
+              </select></label
+            >
+            <button class="btn wa" type="submit">
+              <i class="hgi-stroke hgi-whatsapp" aria-hidden="true"></i> <span data-t="send"></span>
+            </button>
+            <small style="color: var(--mu)" data-t="ordNote"></small>
+          </form>
+        </div>
+      </section>
+
+      <section class="rv">
+        <div class="w">
+          <h2 data-t="delH"></h2>
+          <p class="sub" data-t="delS"></p>
+          <div class="steps">
+            <div><b data-t="s1h"></b><span data-t="s1"></span></div>
+            <div><b data-t="s2h"></b><span data-t="s2"></span></div>
+            <div><b data-t="s3h"></b><span data-t="s3"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq rv" id="faq">
+        <div class="w">
+          <h2 data-t="faqH"></h2>
+          <div id="faq" style="margin-top: 16px"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="rv" style="background: var(--soft)">
+        <div class="w">
+          <h2 data-t="conH"></h2>
+          <p class="sub" data-t="conS"></p>
+          <form id="contactF">
+            <div class="two">
+              <label
+                ><span data-t="name"></span
+                ><input id="c-name" required autocomplete="name"
+              /></label>
+              <label
+                ><span data-t="phone"></span
+                ><input id="c-tel" type="tel" autocomplete="tel"
+              /></label>
+            </div>
+            <label
+              ><span data-t="msg"></span
+              ><textarea id="c-msg" rows="3" required></textarea>
+            </label>
+            <button class="btn" type="submit" data-t="conBtn"></button>
+            <a
+              class="btn o"
+              id="fb"
+              target="_blank"
+              rel="noopener"
+              href="#"
+              data-t="fb"
+            ></a>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="w fin">
+        <div class="fbrand">
+          <img src="assets/logo.png" alt="SaoudaShop" width="52" height="52" loading="lazy" />
+          <div>
+            <b data-t="brand"></b>
+            <span data-t="footTag"></span>
+          </div>
+        </div>
+        <nav class="flinks" aria-label="Footer">
+          <a href="#catalogue" data-t="catH"></a>
+          <a href="#commande" data-t="ordH"></a>
+          <a href="#faq" data-t="faqH"></a>
+          <a href="#contact" data-t="conH"></a>
+        </nav>
+        <div class="fsocial">
+          <a data-wa="hello" href="#"><i class="hgi-stroke hgi-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+          <a id="callF" href="#"><i class="hgi-stroke hgi-call-02" aria-hidden="true"></i> <span data-t="call"></span></a>
+          <a id="fbF" href="#" target="_blank" rel="noopener"><i class="hgi-stroke hgi-facebook-01" aria-hidden="true"></i> <span data-t="fb"></span></a>
+        </div>
+        <p class="fdisc" data-t="disc"></p>
+        <p class="fdisc" data-t="disc2"></p>
+        <p class="frights" id="rights"></p>
+      </div>
+    </footer>
+
+    <a id="fab" data-wa="hello" href="#" aria-label="WhatsApp"><i class="hgi-stroke hgi-whatsapp" aria-hidden="true"></i></a>
+    <div class="bar">
+      <a class="btn wa" data-wa="hello" href="#"><i class="hgi-stroke hgi-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+      <a class="btn o" id="call" href="#"><i class="hgi-stroke hgi-call-02" aria-hidden="true"></i> <span data-t="call"></span></a>
+    </div>
+
+    <div class="modal" id="modal" hidden>
+      <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+        <button class="ib icon-btn mclose" id="mClose" aria-label="Fermer / Close"><i class="hgi-stroke hgi-cancel-01" aria-hidden="true"></i></button>
+        <h3 id="mTitle"></h3>
+        <p class="sub" id="mSub"></p>
+        <div class="mimgs">
+          <img id="mBoite" alt="" />
+          <img id="mFiche" alt="" />
+        </div>
+        <p id="mIng"></p>
+        <div class="mfoot"><span class="pr" id="mPrice"></span></div>
+      </div>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+[
+  {
+    "id": "cao",
+    "n": "Babicao",
+    "c": "linear-gradient(160deg,#7a3b1d,#3f1c0d)",
+    "img": "assets/cereales/nestle-babicao-boite.webp",
+    "fiche": "assets/cereales/nestle-babicao-fiche.webp",
+    "age": 10,
+    "w": "400 g",
+    "b": 20,
+    "pct": 87,
+    "fr": "Cacao, 87 % de céréales",
+    "en": "Cocoa, 87% cereals",
+    "ing": {
+      "fr": "Farine 87 % (blé, orge, seigle, maïs, avoine complète), sucre, cacao maigre en poudre 4,5 %, vitamines, arôme, minéraux. Contient du gluten. Peut contenir : lait.",
+      "en": "Flour 87% (wheat, barley, rye, maize, whole oat), sugar, 4.5% fat-reduced cocoa powder, vitamins, flavouring, minerals. Contains gluten. May contain: milk."
+    }
+  },
+  {
+    "id": "miel",
+    "n": "Babimiel",
+    "c": "linear-gradient(160deg,#f2a233,#d9760f)",
+    "img": "assets/cereales/nestle-babimiel-boite.webp",
+    "fiche": "assets/cereales/nestle-babimiel-fiche.webp",
+    "age": 10,
+    "w": "400 g",
+    "b": 20,
+    "pct": 89,
+    "fr": "Miel, 89 % de céréales",
+    "en": "Honey, 89% cereals",
+    "ing": {
+      "fr": "Farine 89 % (blé, orge, seigle, maïs, avoine complète), miel 9,3 %, sucre, vitamines, minéraux, arôme. Contient du gluten. Peut contenir : lait.",
+      "en": "Flour 89% (wheat, barley, rye, maize, whole oat), honey 9.3%, sugar, vitamins, minerals, flavouring. Contains gluten. May contain: milk."
+    }
+  },
+  {
+    "id": "van",
+    "n": "Babivanille",
+    "c": "linear-gradient(160deg,#f3cf6b,#e0a62c)",
+    "img": "assets/cereales/nestle-babivanille-boite.webp",
+    "fiche": "assets/cereales/nestle-babivanille-fiche.webp",
+    "age": 10,
+    "w": "400 g",
+    "b": 20,
+    "pct": 94,
+    "fr": "Vanille, 94 % de céréales",
+    "en": "Vanilla, 94% cereals",
+    "ing": {
+      "fr": "Farine 94 % (blé, orge, seigle, maïs, avoine complète), sucre, vitamines, arôme (vanilline), arôme naturel de vanille, minéraux. Contient du gluten. Peut contenir : lait.",
+      "en": "Flour 94% (wheat, barley, rye, maize, whole oat), sugar, vitamins, flavouring (vanillin), natural vanilla flavouring, minerals. Contains gluten. May contain: milk."
+    }
+  },
+  {
+    "id": "p5",
+    "n": "P'tite Céréale 5 céréales",
+    "c": "linear-gradient(160deg,#5aa4dc,#c58a3d)",
+    "img": "assets/cereales/nestle-ptite-cereale-5-cereales-vanille-boite.webp",
+    "fiche": "assets/cereales/nestle-ptite-cereale-5-cereales-vanille-fiche.webp",
+    "age": 6,
+    "w": "415 g",
+    "b": 23,
+    "fr": "Vanille, 5 céréales",
+    "en": "Vanilla, 5 cereals",
+    "ing": {
+      "fr": "Farine 98,6 % (blé, orge, seigle, maïs, avoine complète), minéraux, vitamines, arôme naturel de vanille. Contient du gluten. Peut contenir : lait.",
+      "en": "Flour 98.6% (wheat, barley, rye, maize, whole oat), minerals, vitamins, natural vanilla flavouring. Contains gluten. May contain: milk."
+    }
+  },
+  {
+    "id": "p8",
+    "n": "P'tite Céréale complètes",
+    "c": "linear-gradient(160deg,#4d97d6,#9a6532)",
+    "img": "assets/cereales/nestle-ptite-cereale-cereales-completes-8-cereales-boite.webp",
+    "fiche": "assets/cereales/nestle-ptite-cereale-cereales-completes-8-cereales-fiche.webp",
+    "age": 12,
+    "w": "415 g",
+    "b": 17,
+    "fr": "Vanille saveur biscuit, céréales complètes",
+    "en": "Vanilla biscuit flavour, whole grains",
+    "ing": {
+      "fr": "Farine 96,5 % (blé, blé complet 23,4 %, avoine complète 10 %, maïs, seigle, orge, épeautre, riz, triticale), huiles végétales, minéraux, vitamines, arômes. Contient du gluten. Peut contenir : lait.",
+      "en": "Flour 96.5% (wheat, whole wheat 23.4%, whole oat 10%, maize, rye, barley, spelt, rice, triticale), vegetable oils, minerals, vitamins, flavourings. Contains gluten. May contain: milk."
+    }
+  }
+]
