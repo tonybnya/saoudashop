@@ -304,7 +304,7 @@ $("#order").onsubmit = (e) => {
     $("#sum").scrollIntoView({ block: "center" });
     return;
   }
-  const F = T.fr,
+  const F = T[lang],
     pay = $("#o-pay").value === "cash" ? F.cash : $("#o-pay").value,
     city = $("#o-city").value.trim();
   const m = [
