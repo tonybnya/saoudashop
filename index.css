@@ -343,6 +343,28 @@ header .w {
   background: #fbdfe0;
   color: #b4232a;
 }
+.stock.in::before {
+  animation: dotpulse 1.6s ease-in-out infinite;
+}
+.stock.low::before {
+  animation: dotblink 1s steps(2, jump-none) infinite;
+}
+@keyframes dotpulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.72);
+  }
+}
+@keyframes dotblink {
+  50% {
+    opacity: 0.25;
+  }
+}
 .card.out .can img {
   filter: grayscale(45%);
 }
