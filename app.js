@@ -22,7 +22,18 @@ try {
   lang = localStorage.getItem("lang") === "en" ? "en" : "fr";
   const t = localStorage.getItem("theme");
   if (t) document.documentElement.dataset.theme = t;
+  const raw = JSON.parse(localStorage.getItem("cart") || "{}");
+  for (const [id, q] of Object.entries(raw)) {
+    const n = Math.floor(Number(q));
+    if (id && Number.isFinite(n) && n > 0) cart[id] = Math.min(n, 99);
+  }
 } catch (e) {}
+
+function saveCart() {
+  try {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  } catch (e) {}
+}
 
 const t = (k) => T[lang][k];
 const wa = (txt) => "https://wa.me/" + WA + "?text=" + encodeURIComponent(txt);
@@ -172,6 +183,7 @@ $("#grid").onclick = (e) => {
   const id = b.dataset.p || b.dataset.m;
   if (!id) return;
   cart[id] = Math.max(0, (cart[id] || 0) + (b.dataset.p ? 1 : -1));
+  saveCart();
   const out = b.parentNode.querySelector("output");
   out.textContent = cart[id];
   out.classList.remove("pop");
@@ -296,6 +308,10 @@ async function boot() {
     ]);
     P = pr;
     T = tr;
+    for (const id of Object.keys(cart)) {
+      const p = P.find((x) => x.id === id);
+      if (!p || p.stock === "out") delete cart[id];
+    }
     syncThemeIcon();
     render();
   } catch (err) {
