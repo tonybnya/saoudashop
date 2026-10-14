@@ -6,7 +6,7 @@
 const WA = "237694639475",
   FB = "https://www.facebook.com/",
   PRICE = 5000,
-  CONTACT_EMAIL = "tonybnya@gmail.com";
+  CONTACT_EMAIL = "saoudayazieya@gmail.com";
 
 let P = [];
 let T = {};
@@ -58,20 +58,15 @@ function render() {
     )
     .join("");
   $("#grid").innerHTML = P.filter((p) => !filter || p.age === filter)
-    .map(
-      (
-        p,
-        i,
-      ) => {
-        const out = (p.stock || "in") === "out";
-        const st = p.stock || "in";
-        return `<article class="card${out ? " out" : ""}" style="--d:${Math.min(i, 8) * 60}ms">${can(p)}<h3>${p.n}</h3><div>${p[lang]}</div>
+    .map((p, i) => {
+      const out = (p.stock || "in") === "out";
+      const st = p.stock || "in";
+      return `<article class="card${out ? " out" : ""}" style="--d:${Math.min(i, 8) * 60}ms">${can(p)}<h3>${p.n}</h3><div>${p[lang]}</div>
   <div class="tags"><span>${t("f").replace("{a}", p.age)}</span><span>${p.w}</span><span>${t("bib").replace("{b}", p.b)}</span></div>
   <div class="actions"><button class="btn o view" data-v="${p.id}"><i class="hgi-stroke hgi-view" aria-hidden="true"></i> ${t("view")}</button><span class="stock ${st}">${t("stock_" + st)}</span></div>
   <details><summary>${t("ing")}</summary><p>${p.ing[lang]}</p>${p.fiche ? `<img src="${p.fiche}" alt="${p.n}" loading="lazy" style="width:100%;border-radius:12px;margin-top:8px">` : ""}</details>
   <div class="qty"><span class="pr">${fmt(PRICE)}</span><div class="q"><button data-m="${p.id}" aria-label="-"${out ? " disabled" : ""}><i class="hgi-stroke hgi-minus-sign" aria-hidden="true"></i></button><output>${cart[p.id] || 0}</output><button data-p="${p.id}" aria-label="+"${out ? " disabled" : ""}><i class="hgi-stroke hgi-plus-sign" aria-hidden="true"></i></button></div></div></article>`;
-      },
-    )
+    })
     .join("");
   $("#faqList").innerHTML = t("faq")
     .map((f) => `<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`)
@@ -126,7 +121,7 @@ function showSlide(i) {
   $("#mDots").innerHTML = mImgs
     .map(
       (_, d) =>
-        `<button data-d="${d}" aria-label="${d + 1}" aria-current="${d === mIdx}"></button>`
+        `<button data-d="${d}" aria-label="${d + 1}" aria-current="${d === mIdx}"></button>`,
     )
     .join("");
   $("#mCount").textContent = `${mIdx + 1} / ${mImgs.length}`;
@@ -257,14 +252,17 @@ $("#contactF").onsubmit = async (e) => {
       "https://formsubmit.co/ajax/" + encodeURIComponent(CONTACT_EMAIL),
       {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
           _subject: `${t("brand")} – ${t("conH")}`,
           name: $("#c-name").value,
           phone: $("#c-tel").value,
           message: $("#c-msg").value,
         }),
-      }
+      },
     );
     if (!r.ok) throw new Error("send " + r.status);
     status.textContent = t("conOk");
@@ -319,7 +317,7 @@ let mTouchX = null;
 $("#mSlider").addEventListener(
   "touchstart",
   (e) => (mTouchX = e.touches[0].clientX),
-  { passive: true }
+  { passive: true },
 );
 $("#mSlider").addEventListener("touchend", (e) => {
   if (mTouchX === null) return;
