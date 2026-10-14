@@ -48,7 +48,8 @@ function can(p, big) {
 }
 
 let sIdx = 0,
-  sTimer = 0;
+  sTimer = 0,
+  sVisible = true;
 function showProduct(i, user, instant) {
   if (!P.length) return;
   sIdx = (i + P.length) % P.length;
@@ -80,7 +81,8 @@ function restartShow() {
   clearInterval(sTimer);
   if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
     sTimer = setInterval(() => {
-      if (!document.hidden && $("#modal").hidden) showProduct(sIdx + 1);
+      if (!document.hidden && sVisible && $("#modal").hidden)
+        showProduct(sIdx + 1);
     }, 3000);
   }
 }
@@ -258,6 +260,10 @@ $("#sThumbs").onclick = (e) => {
   if (b) showProduct(+b.dataset.s, true);
 };
 $("#sbox").onclick = () => {
+  if (sSwiped) {
+    sSwiped = false;
+    return;
+  }
   if (P[sIdx]) openModal(P[sIdx].id);
 };
 for (const ev of ["pointerenter", "focusin"]) {
@@ -266,6 +272,28 @@ for (const ev of ["pointerenter", "focusin"]) {
 for (const ev of ["pointerleave", "focusout"]) {
   $("#showcase").addEventListener(ev, restartShow);
 }
+let sTouchX = null,
+  sSwiped = false;
+$("#stage").addEventListener(
+  "touchstart",
+  (e) => {
+    sTouchX = e.touches[0].clientX;
+    sSwiped = false;
+  },
+  { passive: true }
+);
+$("#stage").addEventListener("touchend", (e) => {
+  if (sTouchX === null) return;
+  const dx = e.changedTouches[0].clientX - sTouchX;
+  if (Math.abs(dx) > 40) {
+    sSwiped = true;
+    showProduct(sIdx + (dx < 0 ? 1 : -1), true);
+  }
+  sTouchX = null;
+});
+new IntersectionObserver((es) => {
+  sVisible = es[0].isIntersecting;
+}).observe($("#showcase"));
 
 $("#lang").onclick = () => {
   lang = lang === "fr" ? "en" : "fr";
