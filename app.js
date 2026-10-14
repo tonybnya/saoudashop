@@ -373,4 +373,140 @@ addEventListener(
   { passive: true },
 );
 
+// Living hero: pointer-reactive bubble canvas + magnetic CTAs + faint can parallax.
+// The static hero underneath stays the full fallback (reduced motion, touch, no canvas).
+(function livingHero() {
+  const hero = document.querySelector(".hero"),
+    canvas = document.querySelector("#heroFx");
+  if (!hero || !canvas) return;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    canvas.remove();
+    return;
+  }
+  const ctx = canvas.getContext("2d");
+  if (!ctx) {
+    canvas.remove();
+    return;
+  }
+  const fine = matchMedia("(pointer: fine)").matches;
+  const COLORS = ["255,248,238", "246,164,60", "224,123,22", "255,255,255"];
+  const pointer = { x: -9999, y: -9999 };
+  let W = 0,
+    H = 0,
+    parts = [],
+    visible = true,
+    raf = 0;
+  function spawn(anyY) {
+    return {
+      x: Math.random() * W,
+      y: anyY ? Math.random() * H : H + 12,
+      r: 1.5 + Math.random() * 5,
+      vy: 0.12 + Math.random() * 0.35,
+      sway: Math.random() * Math.PI * 2,
+      swaySp: 0.004 + Math.random() * 0.012,
+      swayAmp: 6 + Math.random() * 14,
+      c: COLORS[(Math.random() * COLORS.length) | 0],
+      a: 0.08 + Math.random() * 0.18,
+    };
+  }
+  function resize() {
+    const dpr = Math.min(devicePixelRatio || 1, 2),
+      r = hero.getBoundingClientRect();
+    W = Math.max(1, Math.round(r.width));
+    H = Math.max(1, Math.round(r.height));
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    parts = Array.from({ length: W < 560 ? 16 : 42 }, () => spawn(true));
+  }
+  const btns = [...hero.querySelectorAll(".row .btn")].map((b) => ({
+    b,
+    tx: 0,
+    ty: 0,
+    x: 0,
+    y: 0,
+  }));
+  if (fine) {
+    hero.addEventListener("pointermove", (e) => {
+      const r = hero.getBoundingClientRect();
+      pointer.x = e.clientX - r.left;
+      pointer.y = e.clientY - r.top;
+      for (const o of btns) {
+        const br = o.b.getBoundingClientRect(),
+          cx = br.left - r.left + br.width / 2,
+          cy = br.top - r.top + br.height / 2;
+        o.tx = Math.max(-8, Math.min(8, (pointer.x - cx) * 0.08));
+        o.ty = Math.max(-8, Math.min(8, (pointer.y - cy) * 0.12));
+      }
+    });
+    hero.addEventListener("pointerleave", () => {
+      pointer.x = -9999;
+      pointer.y = -9999;
+      for (const o of btns) {
+        o.tx = 0;
+        o.ty = 0;
+      }
+    });
+  }
+  function tick() {
+    raf = 0;
+    if (!visible || document.hidden) return;
+    ctx.clearRect(0, 0, W, H);
+    for (const p of parts) {
+      p.y -= p.vy;
+      p.sway += p.swaySp;
+      const dx = p.x - pointer.x,
+        dy = p.y - pointer.y,
+        d2 = dx * dx + dy * dy;
+      if (d2 < 14400 && d2 > 1) {
+        const d = Math.sqrt(d2),
+          f = ((120 - d) / 120) * 1.6;
+        p.x += (dx / d) * f;
+        p.y += (dy / d) * f;
+      }
+      if (p.y < -14) Object.assign(p, spawn(false));
+      ctx.beginPath();
+      ctx.arc(p.x + Math.sin(p.sway) * p.swayAmp * 0.3, p.y, p.r, 0, 6.2832);
+      ctx.fillStyle = `rgba(${p.c},${p.a.toFixed(3)})`;
+      ctx.fill();
+    }
+    for (const o of btns) {
+      o.x += (o.tx - o.x) * 0.15;
+      o.y += (o.ty - o.y) * 0.15;
+      o.b.style.translate =
+        Math.abs(o.x) + Math.abs(o.y) > 0.1
+          ? `${o.x.toFixed(2)}px ${o.y.toFixed(2)}px`
+          : "";
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  function play() {
+    if (!raf && visible && !document.hidden) raf = requestAnimationFrame(tick);
+  }
+  function stop() {
+    if (raf) cancelAnimationFrame(raf);
+    raf = 0;
+  }
+  const cans = document.querySelector("#heroCans");
+  addEventListener(
+    "scroll",
+    () => {
+      if (cans)
+        cans.style.translate = `0 ${Math.min(scrollY * 0.05, 36).toFixed(1)}px`;
+    },
+    { passive: true }
+  );
+  new IntersectionObserver((es) => {
+    visible = es[0].isIntersecting;
+    visible ? play() : stop();
+  }).observe(hero);
+  document.addEventListener("visibilitychange", () =>
+    document.hidden ? stop() : play()
+  );
+  addEventListener("resize", resize);
+  if ("ResizeObserver" in window) new ResizeObserver(resize).observe(hero);
+  resize();
+  play();
+})();
+
 boot();
