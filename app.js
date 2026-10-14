@@ -216,9 +216,7 @@ $("#lang").onclick = () => {
 
 function syncThemeIcon() {
   const d = document.documentElement,
-    dark = d.dataset.theme
-      ? d.dataset.theme === "dark"
-      : matchMedia("(prefers-color-scheme:dark)").matches;
+    dark = d.dataset.theme === "dark";
   $("#theme").dataset.mode = dark ? "dark" : "light";
   $("#theme").setAttribute(
     "aria-label",
@@ -230,9 +228,7 @@ function syncThemeIcon() {
 
 $("#theme").onclick = () => {
   const d = document.documentElement,
-    dark = d.dataset.theme
-      ? d.dataset.theme === "dark"
-      : matchMedia("(prefers-color-scheme:dark)").matches;
+    dark = d.dataset.theme === "dark";
   d.dataset.theme = dark ? "light" : "dark";
   try {
     localStorage.setItem("theme", d.dataset.theme);

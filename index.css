@@ -13,20 +13,6 @@
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #1d1612;
-    --sf: #2a211b;
-    --tx: #f5e9dc;
-    --mu: #b9a695;
-    --pr: #f2993a;
-    --prt: #2a1700;
-    --ac: #7bb6ee;
-    --wa: #22c55e;
-    --bd: #44362b;
-    --soft: #35281e;
-  }
-}
 :root[data-theme="dark"] {
   --bg: #1d1612;
   --sf: #2a211b;
