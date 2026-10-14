@@ -84,7 +84,8 @@
     "cl": "Message de contact",
     "sending": "Envoi en cours…",
     "conOk": "Message envoyé ! Nous vous répondrons vite.",
-    "conErr": "Échec de l'envoi. Réessayez ou écrivez-nous sur WhatsApp."
+    "conErr": "Échec de l'envoi. Réessayez ou écrivez-nous sur WhatsApp.",
+    "cartToast": "Ajouté ! Finalisez votre commande"
   },
   "en": {
     "brand": "SaoudaShop",
@@ -171,6 +172,7 @@
     "cl": "Contact message",
     "sending": "Sending…",
     "conOk": "Message sent! We'll reply soon.",
-    "conErr": "Couldn't send. Try again or write to us on WhatsApp."
+    "conErr": "Couldn't send. Try again or write to us on WhatsApp.",
+    "cartToast": "Added! Complete your order"
   }
 }

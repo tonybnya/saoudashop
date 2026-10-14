@@ -109,6 +109,8 @@ function sum() {
     void badge.offsetHeight;
     badge.classList.add("pop");
   }
+  const send = document.querySelector("#order button[type=submit]");
+  if (send) send.classList.toggle("ready", n > 0);
 }
 
 let mImgs = [],
@@ -176,6 +178,12 @@ $("#grid").onclick = (e) => {
   void out.offsetHeight;
   out.classList.add("pop");
   sum();
+  if (b.dataset.p) {
+    const toast = $("#toast");
+    toast.hidden = false;
+    clearTimeout(toast._h);
+    toast._h = setTimeout(() => (toast.hidden = true), 3200);
+  }
 };
 
 $("#age").onclick = (e) => {
@@ -298,6 +306,10 @@ async function boot() {
 }
 
 $("#mClose").onclick = closeModal;
+$("#toast").onclick = () => {
+  clearTimeout($("#toast")._h);
+  $("#toast").hidden = true;
+};
 $("#modal").addEventListener("click", (e) => {
   if (e.target === $("#modal")) closeModal();
 });
