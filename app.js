@@ -1,10 +1,12 @@
 // Shop logic: loads data/*.json, renders catalogue, cart, WhatsApp order.
 "use strict";
 
-// Config: WhatsApp number (international format, no +), Facebook URL, unit price.
+// Config: WhatsApp number (international format, no +), Facebook URL, unit price,
+// contact email (change it here, the form follows automatically).
 const WA = "237694639475",
   FB = "https://www.facebook.com/",
-  PRICE = 5000;
+  PRICE = 5000,
+  CONTACT_EMAIL = "tonybnya@gmail.com";
 
 let P = [];
 let T = {};
@@ -244,12 +246,34 @@ $("#order").onsubmit = (e) => {
   location.href = wa(m);
 };
 
-$("#contactF").onsubmit = (e) => {
+$("#contactF").onsubmit = async (e) => {
   e.preventDefault();
-  const F = T.fr;
-  location.href = wa(
-    `${F.cl} (${$("#c-name").value}${$("#c-tel").value ? " – " + $("#c-tel").value : ""}) :\n${$("#c-msg").value}`,
-  );
+  const status = $("#c-status"),
+    btn = $("#contactF button[type=submit]");
+  status.textContent = t("sending");
+  btn.disabled = true;
+  try {
+    const r = await fetch(
+      "https://formsubmit.co/ajax/" + encodeURIComponent(CONTACT_EMAIL),
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `${t("brand")} – ${t("conH")}`,
+          name: $("#c-name").value,
+          phone: $("#c-tel").value,
+          message: $("#c-msg").value,
+        }),
+      }
+    );
+    if (!r.ok) throw new Error("send " + r.status);
+    status.textContent = t("conOk");
+    $("#contactF").reset();
+  } catch (err) {
+    console.error(err);
+    status.textContent = t("conErr");
+  }
+  btn.disabled = false;
 };
 
 async function boot() {

@@ -67,7 +67,7 @@
     "conS": "Écrivez-nous, nous répondons vite sur WhatsApp.",
     "phone": "Téléphone (facultatif)",
     "msg": "Votre message",
-    "conBtn": "Envoyer sur WhatsApp",
+    "conBtn": "Envoyer le message",
     "fb": "Voir notre page Facebook",
     "call": "Appeler",
     "disc": "Revendeur indépendant, non affilié à Nestlé. Nestlé, Babicao, Babimiel, Babivanille et P'tite Céréale sont des marques de leurs propriétaires.",
@@ -81,7 +81,10 @@
     "ql": "Quartier",
     "pl": "Paiement",
     "nl": "Prénom",
-    "cl": "Message de contact"
+    "cl": "Message de contact",
+    "sending": "Envoi en cours…",
+    "conOk": "Message envoyé ! Nous vous répondrons vite.",
+    "conErr": "Échec de l'envoi. Réessayez ou écrivez-nous sur WhatsApp."
   },
   "en": {
     "brand": "SaoudaShop",
@@ -151,7 +154,7 @@
     "conS": "Write to us, we reply quickly on WhatsApp.",
     "phone": "Phone (optional)",
     "msg": "Your message",
-    "conBtn": "Send on WhatsApp",
+    "conBtn": "Send message",
     "fb": "Visit our Facebook page",
     "call": "Call",
     "disc": "Independent reseller, not affiliated with Nestlé. Nestlé, Babicao, Babimiel, Babivanille and P'tite Céréale are trademarks of their owners.",
@@ -165,7 +168,9 @@
     "ql": "Area",
     "pl": "Payment",
     "nl": "First name",
-    "cl": "Contact message"
+    "cl": "Contact message",
+    "sending": "Sending…",
+    "conOk": "Message sent! We'll reply soon.",
+    "conErr": "Couldn't send. Try again or write to us on WhatsApp."
   }
 }
-
