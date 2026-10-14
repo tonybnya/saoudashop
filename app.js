@@ -60,11 +60,15 @@ function render() {
       (
         p,
         i,
-      ) => `<article class="card" style="--d:${Math.min(i, 8) * 60}ms">${can(p)}<h3>${p.n}</h3><div>${p[lang]}</div>
+      ) => {
+        const out = (p.stock || "in") === "out";
+        const st = p.stock || "in";
+        return `<article class="card${out ? " out" : ""}" style="--d:${Math.min(i, 8) * 60}ms">${can(p)}<h3>${p.n}</h3><div>${p[lang]}</div>
   <div class="tags"><span>${t("f").replace("{a}", p.age)}</span><span>${p.w}</span><span>${t("bib").replace("{b}", p.b)}</span></div>
-  <button class="btn o view" data-v="${p.id}"><i class="hgi-stroke hgi-view" aria-hidden="true"></i> ${t("view")}</button>
+  <div class="actions"><button class="btn o view" data-v="${p.id}"><i class="hgi-stroke hgi-view" aria-hidden="true"></i> ${t("view")}</button><span class="stock ${st}">${t("stock_" + st)}</span></div>
   <details><summary>${t("ing")}</summary><p>${p.ing[lang]}</p>${p.fiche ? `<img src="${p.fiche}" alt="${p.n}" loading="lazy" style="width:100%;border-radius:12px;margin-top:8px">` : ""}</details>
-  <div class="qty"><span class="pr">${fmt(PRICE)}</span><div class="q"><button data-m="${p.id}" aria-label="-"><i class="hgi-stroke hgi-minus-sign" aria-hidden="true"></i></button><output>${cart[p.id] || 0}</output><button data-p="${p.id}" aria-label="+"><i class="hgi-stroke hgi-plus-sign" aria-hidden="true"></i></button></div></div></article>`,
+  <div class="qty"><span class="pr">${fmt(PRICE)}</span><div class="q"><button data-m="${p.id}" aria-label="-"${out ? " disabled" : ""}><i class="hgi-stroke hgi-minus-sign" aria-hidden="true"></i></button><output>${cart[p.id] || 0}</output><button data-p="${p.id}" aria-label="+"${out ? " disabled" : ""}><i class="hgi-stroke hgi-plus-sign" aria-hidden="true"></i></button></div></div></article>`;
+      },
     )
     .join("");
   $("#faqList").innerHTML = t("faq")
@@ -144,6 +148,10 @@ function openModal(id) {
   showSlide(0);
   $("#mIng").textContent = p.ing[lang];
   $("#mPrice").textContent = fmt(PRICE);
+  const mst = $("#mStock"),
+    st = p.stock || "in";
+  mst.textContent = t("stock_" + st);
+  mst.className = "stock " + st;
   $("#modal").hidden = false;
   document.body.style.overflow = "hidden";
   $("#mClose").focus();
