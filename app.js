@@ -305,13 +305,15 @@ $("#order").onsubmit = (e) => {
     return;
   }
   const F = T.fr,
-    pay = $("#o-pay").value === "cash" ? F.cash : $("#o-pay").value;
+    pay = $("#o-pay").value === "cash" ? F.cash : $("#o-pay").value,
+    city = $("#o-city").value.trim();
   const m = [
     F.oh,
     ...lines().map((l) => "- " + l),
     "",
     `${F.tot} : ${fmt(n * PRICE)} (${F.nofee})`,
     `${F.ql} : ${$("#o-dist").value}`,
+    ...(city ? [`${F.cityL} : ${city}`] : []),
     `${F.pl} : ${pay}`,
     `${F.nl} : ${$("#o-name").value}`,
   ].join("\n");

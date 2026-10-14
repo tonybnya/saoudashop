@@ -2,13 +2,13 @@
   "fr": {
     "brand": "SaoudaShop",
     "price": "Toutes les boîtes à 5 000 FCFA",
-    "h1": "Les céréales Nestlé pour bébé, livrées chez vous à Douala",
-    "lead": "Choisissez selon l'âge de bébé, envoyez votre commande sur WhatsApp, payez en espèces ou par Mobile Money à la livraison.",
+    "h1": "Les céréales Nestlé pour bébé, livrées à Douala et expédiées dans tout le Cameroun",
+    "lead": "Choisissez selon l'âge de bébé, envoyez votre commande sur WhatsApp, payez en espèces ou par Mobile Money. Livraison à Douala, retrait par une personne de votre choix, ou expédition dans tout le Cameroun à vos frais.",
     "ctaWa": "Commander sur WhatsApp",
     "ctaCat": "Voir les céréales",
     "t1": "Produits importés de France",
     "t2": "Date de péremption vérifiée",
-    "t3": "Livraison à Douala",
+    "t3": "Livraison à Douala ou expédition dans tout le Cameroun",
     "t4": "Espèces, MoMo ou OM",
     "catH": "Nos céréales",
     "catS": "Même prix pour toutes : 5 000 FCFA la boîte. Filtrez par âge indiqué sur la boîte.",
@@ -31,7 +31,7 @@
     "pay": "Mode de paiement",
     "cash": "Espèces à la livraison",
     "send": "Envoyer ma commande sur WhatsApp",
-    "ordNote": "Frais de livraison selon le quartier, confirmés sur WhatsApp avant toute commande ferme.",
+    "ordNote": "Frais de livraison selon le quartier, ou d'expédition selon la destination, confirmés sur WhatsApp avant toute commande ferme.",
     "delH": "Comment ça marche",
     "delS": "Simple et sans mauvaise surprise.",
     "s1h": "1. Vous commandez",
@@ -39,7 +39,7 @@
     "s2h": "2. On confirme",
     "s2": "Disponibilité, frais de livraison et heure de passage confirmés avec vous.",
     "s3h": "3. On vous livre",
-    "s3": "En moto-taxi, par nous-mêmes ou un proche de confiance. Vous payez à la réception.",
+    "s3": "En moto-taxi à Douala, par une personne de votre choix, ou par expédition partout au Cameroun (frais d'expédition à votre charge). Vous payez à la réception.",
     "faqH": "Questions fréquentes",
     "faq": [
       [
@@ -56,7 +56,7 @@
       ],
       [
         "Où livrez-vous ?",
-        "À Douala, en moto-taxi. Indiquez votre quartier, nous vous confirmons les frais et le délai."
+        "À Douala en moto-taxi, ou récupérée par une personne de votre choix. Nous expédions aussi partout au Cameroun : les frais d'expédition sont à votre charge. Indiquez votre quartier ou votre ville, nous vous confirmons les frais et le délai."
       ],
       [
         "Comment conserver une boîte ?",
@@ -85,18 +85,20 @@
     "sending": "Envoi en cours…",
     "conOk": "Message envoyé ! Nous vous répondrons vite.",
     "conErr": "Échec de l'envoi. Réessayez ou écrivez-nous sur WhatsApp.",
-    "cartToast": "Ajouté ! Finalisez votre commande"
+    "cartToast": "Ajouté ! Finalisez votre commande",
+    "city": "Ville (si expédition)",
+    "cityL": "Ville"
   },
   "en": {
     "brand": "SaoudaShop",
     "price": "Every box at 5,000 FCFA",
-    "h1": "Nestlé baby cereals, delivered to your door in Douala",
-    "lead": "Pick by your baby's age, send your order on WhatsApp, pay cash or Mobile Money on delivery.",
+    "h1": "Nestlé baby cereals, delivered in Douala and shipped across Cameroon",
+    "lead": "Pick by your baby's age, send your order on WhatsApp, pay cash or Mobile Money. Delivery in Douala, pickup by someone you designate, or shipping across Cameroon at your expense.",
     "ctaWa": "Order on WhatsApp",
     "ctaCat": "See the cereals",
     "t1": "Imported from France",
     "t2": "Expiry date checked",
-    "t3": "Delivery in Douala",
+    "t3": "Delivery in Douala or shipping across Cameroon",
     "t4": "Cash, MoMo or OM",
     "catH": "Our cereals",
     "catS": "One price for all: 5,000 FCFA per box. Filter by the age shown on the box.",
@@ -119,7 +121,7 @@
     "pay": "Payment method",
     "cash": "Cash on delivery",
     "send": "Send my order on WhatsApp",
-    "ordNote": "Delivery fee depends on the area and is confirmed on WhatsApp before your order is final.",
+    "ordNote": "Delivery fee depends on the area, or shipping fee on the destination, confirmed on WhatsApp before your order is final.",
     "delH": "How it works",
     "delS": "Simple, no surprises.",
     "s1h": "1. You order",
@@ -127,7 +129,7 @@
     "s2h": "2. We confirm",
     "s2": "Availability, delivery fee and time confirmed with you.",
     "s3h": "3. We deliver",
-    "s3": "By moto-taxi, either ourselves or a trusted relative. You pay on receipt.",
+    "s3": "By moto-taxi in Douala, by someone you designate, or shipped anywhere in Cameroon (shipping fees at your expense). You pay on receipt.",
     "faqH": "FAQ",
     "faq": [
       [
@@ -144,7 +146,7 @@
       ],
       [
         "Where do you deliver?",
-        "Across Douala, by moto-taxi. Tell us your area and we'll confirm the fee and timing."
+        "Across Douala by moto-taxi, or picked up by someone you designate. We also ship anywhere in Cameroon: shipping fees are at your expense. Tell us your area or city and we'll confirm the fee and timing."
       ],
       [
         "How do I store a box?",
@@ -173,6 +175,8 @@
     "sending": "Sending…",
     "conOk": "Message sent! We'll reply soon.",
     "conErr": "Couldn't send. Try again or write to us on WhatsApp.",
-    "cartToast": "Added! Complete your order"
+    "cartToast": "Added! Complete your order",
+    "city": "City (if shipping)",
+    "cityL": "City"
   }
 }
