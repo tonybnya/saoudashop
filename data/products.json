@@ -15,7 +15,8 @@
       "fr": "Farine 87 % (blé, orge, seigle, maïs, avoine complète), sucre, cacao maigre en poudre 4,5 %, vitamines, arôme, minéraux. Contient du gluten. Peut contenir : lait.",
       "en": "Flour 87% (wheat, barley, rye, maize, whole oat), sugar, 4.5% fat-reduced cocoa powder, vitamins, flavouring, minerals. Contains gluten. May contain: milk."
     },
-    "stock": "in"
+    "stock": "in",
+    "stage": "assets/cereales/nestle-babicao-boite-stage.webp"
   },
   {
     "id": "miel",
@@ -33,7 +34,8 @@
       "fr": "Farine 89 % (blé, orge, seigle, maïs, avoine complète), miel 9,3 %, sucre, vitamines, minéraux, arôme. Contient du gluten. Peut contenir : lait.",
       "en": "Flour 89% (wheat, barley, rye, maize, whole oat), honey 9.3%, sugar, vitamins, minerals, flavouring. Contains gluten. May contain: milk."
     },
-    "stock": "in"
+    "stock": "in",
+    "stage": "assets/cereales/nestle-babimiel-boite-stage.webp"
   },
   {
     "id": "van",
@@ -51,7 +53,8 @@
       "fr": "Farine 94 % (blé, orge, seigle, maïs, avoine complète), sucre, vitamines, arôme (vanilline), arôme naturel de vanille, minéraux. Contient du gluten. Peut contenir : lait.",
       "en": "Flour 94% (wheat, barley, rye, maize, whole oat), sugar, vitamins, flavouring (vanillin), natural vanilla flavouring, minerals. Contains gluten. May contain: milk."
     },
-    "stock": "in"
+    "stock": "in",
+    "stage": "assets/cereales/nestle-babivanille-boite-stage.webp"
   },
   {
     "id": "p5",
@@ -68,7 +71,8 @@
       "fr": "Farine 98,6 % (blé, orge, seigle, maïs, avoine complète), minéraux, vitamines, arôme naturel de vanille. Contient du gluten. Peut contenir : lait.",
       "en": "Flour 98.6% (wheat, barley, rye, maize, whole oat), minerals, vitamins, natural vanilla flavouring. Contains gluten. May contain: milk."
     },
-    "stock": "out"
+    "stock": "out",
+    "stage": "assets/cereales/nestle-ptite-cereale-5-cereales-vanille-boite-stage.webp"
   },
   {
     "id": "p8",
@@ -85,7 +89,8 @@
       "fr": "Farine 96,5 % (blé, blé complet 23,4 %, avoine complète 10 %, maïs, seigle, orge, épeautre, riz, triticale), huiles végétales, minéraux, vitamines, arômes. Contient du gluten. Peut contenir : lait.",
       "en": "Flour 96.5% (wheat, whole wheat 23.4%, whole oat 10%, maize, rye, barley, spelt, rice, triticale), vegetable oils, minerals, vitamins, flavourings. Contains gluten. May contain: milk."
     },
-    "stock": "out"
+    "stock": "out",
+    "stage": "assets/cereales/nestle-ptite-cereale-cereales-completes-8-cereales-boite-stage.webp"
   },
   {
     "id": "p8c",
@@ -102,6 +107,7 @@
     "ing": {
       "fr": "Farine 93 % (blé diastasé, blé complet 22,5 %, avoine complète 9,7 %, orge, seigle, maïs, épeautre, riz, triticale), chocolat 4,5 % (sucre, pâte de cacao, beurre de cacao), huiles végétales, minéraux, vitamines, arômes, antioxydants. Contient du gluten. Peut contenir : lait.",
       "en": "Flour 93% (malted wheat, whole wheat 22.5%, whole oat 9.7%, barley, rye, maize, spelt, rice, triticale), chocolate 4.5% (sugar, cocoa mass, cocoa butter), vegetable oils, minerals, vitamins, flavourings, antioxidants. Contains gluten. May contain: milk."
-    }
+    },
+    "stage": "assets/cereales/nestle-ptite-cereale-cereales-completes-chocolat-saveur-biscuit-boite-stage.webp"
   }
 ]

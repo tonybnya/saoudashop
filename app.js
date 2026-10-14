@@ -4,7 +4,7 @@
 // Config: WhatsApp number (international format, no +), Facebook URL, unit price,
 // contact email (change it here, the form follows automatically).
 const WA = "237694639475",
-  FB = "https://www.facebook.com/",
+  FB = "https://www.facebook.com/share/19JuxXMs5z/?mibextid=wwXIfr",
   PRICE = 5000,
   CONTACT_EMAIL = "saoudayazieya@gmail.com";
 
@@ -47,6 +47,44 @@ function can(p, big) {
   );
 }
 
+let sIdx = 0,
+  sTimer = 0;
+function showProduct(i, user, instant) {
+  if (!P.length) return;
+  sIdx = (i + P.length) % P.length;
+  const p = P[sIdx],
+    box = $("#sbox");
+  const paint = () => {
+    const img = $("#sImg");
+    img.src = p.stage || p.img;
+    img.alt = p.n;
+    box.setAttribute("aria-label", `${p.n} – ${t("view")}`);
+    $("#sName").textContent = p.n;
+    $("#sDesc").textContent = p[lang];
+    $("#sCount").textContent = `${sIdx + 1} / ${P.length}`;
+    document
+      .querySelectorAll("#sThumbs button")
+      .forEach((b, d) => b.setAttribute("aria-current", d === sIdx));
+    box.classList.remove("swap");
+  };
+  if (instant) {
+    paint();
+  } else {
+    box.classList.add("swap");
+    clearTimeout(box._t);
+    box._t = setTimeout(paint, 200);
+  }
+  if (user) restartShow();
+}
+function restartShow() {
+  clearInterval(sTimer);
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    sTimer = setInterval(() => {
+      if (!document.hidden && $("#modal").hidden) showProduct(sIdx + 1);
+    }, 3000);
+  }
+}
+
 function render() {
   document.documentElement.lang = lang;
   $("#langLabel").textContent = lang === "fr" ? "EN" : "FR";
@@ -58,9 +96,18 @@ function render() {
     .querySelectorAll("[data-t]")
     .forEach((e) => (e.textContent = t(e.dataset.t)));
   document.title = t("brand") + " – " + fmt(PRICE);
-  $("#heroCans").innerHTML = P.slice(0, 3)
-    .map((p) => can(p, 1))
-    .join("");
+  $("#sThumbs").innerHTML = P.map(
+    (p, d) =>
+      `<button data-s="${d}" aria-label="${p.n}" aria-current="${d === sIdx}"><img src="${p.stage || p.img}" alt="" loading="lazy"></button>`,
+  ).join("");
+  $("#sThumbs").setAttribute("aria-label", t("catH"));
+  if (sIdx >= P.length) sIdx = 0;
+  showProduct(sIdx, false, true);
+  restartShow();
+  P.forEach((p) => {
+    const im = new Image();
+    im.src = p.stage || p.img;
+  });
   const ages = [0, 6, 10, 12];
   $("#age").innerHTML = ages
     .map(
@@ -205,6 +252,20 @@ $("#age").onclick = (e) => {
     render();
   }
 };
+
+$("#sThumbs").onclick = (e) => {
+  const b = e.target.closest("[data-s]");
+  if (b) showProduct(+b.dataset.s, true);
+};
+$("#sbox").onclick = () => {
+  if (P[sIdx]) openModal(P[sIdx].id);
+};
+for (const ev of ["pointerenter", "focusin"]) {
+  $("#showcase").addEventListener(ev, () => clearInterval(sTimer));
+}
+for (const ev of ["pointerleave", "focusout"]) {
+  $("#showcase").addEventListener(ev, restartShow);
+}
 
 $("#lang").onclick = () => {
   lang = lang === "fr" ? "en" : "fr";
@@ -483,21 +544,21 @@ addEventListener(
     if (raf) cancelAnimationFrame(raf);
     raf = 0;
   }
-  const cans = document.querySelector("#heroCans");
+  const cans = document.querySelector("#stage");
   addEventListener(
     "scroll",
     () => {
       if (cans)
         cans.style.translate = `0 ${Math.min(scrollY * 0.05, 36).toFixed(1)}px`;
     },
-    { passive: true }
+    { passive: true },
   );
   new IntersectionObserver((es) => {
     visible = es[0].isIntersecting;
     visible ? play() : stop();
   }).observe(hero);
   document.addEventListener("visibilitychange", () =>
-    document.hidden ? stop() : play()
+    document.hidden ? stop() : play(),
   );
   addEventListener("resize", resize);
   if ("ResizeObserver" in window) new ResizeObserver(resize).observe(hero);
