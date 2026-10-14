@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="SaoudaShop">
+  <defs>
+    <linearGradient id="sa-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6A43C"/>
+      <stop offset="1" stop-color="#DE7314"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="58" fill="url(#sa-bg)"/>
+  <path d="M204 44l7 16 16 7-16 7-7 16-7-16-16-7 16-7z" fill="#FFF8EE" opacity=".95"/>
+  <circle cx="52" cy="58" r="7" fill="#FFF8EE" opacity=".7"/>
+  <g stroke="#7A3B1D" stroke-width="7" stroke-linecap="round">
+    <line x1="128" y1="122" x2="90" y2="64"/>
+    <line x1="128" y1="122" x2="128" y2="56"/>
+    <line x1="128" y1="122" x2="166" y2="64"/>
+  </g>
+  <g fill="#7A3B1D">
+    <ellipse cx="112" cy="100" rx="11" ry="5.5" transform="rotate(-54 112 100)"/>
+    <ellipse cx="101" cy="83" rx="11" ry="5.5" transform="rotate(-54 101 83)"/>
+    <ellipse cx="90" cy="66" rx="11" ry="5.5" transform="rotate(-54 90 66)"/>
+    <ellipse cx="128" cy="98" rx="11" ry="5.5"/>
+    <ellipse cx="128" cy="79" rx="11" ry="5.5"/>
+    <ellipse cx="128" cy="60" rx="11" ry="5.5"/>
+    <ellipse cx="144" cy="100" rx="11" ry="5.5" transform="rotate(54 144 100)"/>
+    <ellipse cx="155" cy="83" rx="11" ry="5.5" transform="rotate(54 155 83)"/>
+    <ellipse cx="166" cy="66" rx="11" ry="5.5" transform="rotate(54 166 66)"/>
+  </g>
+  <path d="M52 134h152c0 42-34 68-76 68s-76-26-76-68z" fill="#FFF8EE"/>
+  <ellipse cx="128" cy="134" rx="76" ry="17" fill="#E8B04B"/>
+  <ellipse cx="128" cy="134" rx="76" ry="17" fill="none" stroke="#7A3B1D" stroke-width="6"/>
+  <g fill="#7A3B1D">
+    <circle cx="104" cy="131" r="4"/>
+    <circle cx="124" cy="136" r="4"/>
+    <circle cx="144" cy="131" r="4"/>
+    <circle cx="162" cy="135" r="4"/>
+    <circle cx="88" cy="135" r="4"/>
+  </g>
+  <path d="M104 168q24 14 48 0" fill="none" stroke="#7A3B1D" stroke-width="7" stroke-linecap="round"/>
+</svg>
