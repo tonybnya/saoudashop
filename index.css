@@ -1260,6 +1260,15 @@ body {
   .showcase {
     gap: 10px;
   }
+  .stage {
+    gap: 14px;
+  }
+  .scap {
+    gap: 5px;
+  }
+  .sthumbs {
+    margin-top: 8px;
+  }
   .sbox img {
     height: 200px;
   }
