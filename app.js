@@ -477,10 +477,40 @@ addEventListener(
   }
   const fine = matchMedia("(pointer: fine)").matches;
   const COLORS = ["255,248,238", "246,164,60", "224,123,22", "255,255,255"];
+  const cs = getComputedStyle(hero),
+    tok = (k, fb) => {
+      const v = cs.getPropertyValue(k).trim();
+      return /^\d+\s*,\s*\d+\s*,\s*\d+$/.test(v) ? v : fb;
+    };
+  const DCOLORS = [
+    tok("--milk", "255,255,255"),
+    tok("--milk2", "255,240,214"),
+    tok("--milk3", "224,123,22"),
+  ];
+  function spawnDrop(anyY) {
+    const pick = Math.random(),
+      r = 3 + Math.random() * 6;
+    return {
+      x: W * (0.06 + Math.random() * 0.88),
+      y: anyY ? -Math.random() * H : -14,
+      r: r,
+      vy: 0.35 + (r / 9) * 1.3,
+      sway: Math.random() * Math.PI * 2,
+      swaySp: 0.004 + Math.random() * 0.012,
+      swayAmp: 6 + Math.random() * 14,
+      c: pick < 0.45 ? 0 : pick < 0.75 ? 1 : 2,
+      a: 0.45 + Math.random() * 0.3,
+    };
+  }
   const pointer = { x: -9999, y: -9999 };
   let W = 0,
     H = 0,
     parts = [],
+    dops = [],
+    splashes = [],
+    stageTop = 0,
+    stageL = 0,
+    stageR = 0,
     visible = true,
     raf = 0;
   function spawn(anyY) {
@@ -505,6 +535,13 @@ addEventListener(
     canvas.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     parts = Array.from({ length: W < 560 ? 16 : 42 }, () => spawn(true));
+    dops = Array.from({ length: W < 560 ? 2 : 5 }, () => spawnDrop(true));
+    const can = cans ? cans.getBoundingClientRect() : null;
+    if (can) {
+      stageTop = Math.round(can.top - r.top);
+      stageL = Math.round(can.left - r.left);
+      stageR = Math.round(can.right - r.left);
+    } else stageTop = stageL = stageR = 0;
   }
   const btns = [...hero.querySelectorAll(".row .btn")].map((b) => ({
     b,
@@ -557,6 +594,69 @@ addEventListener(
       ctx.fillStyle = `rgba(${p.c},${p.a.toFixed(3)})`;
       ctx.fill();
     }
+    for (const p of dops) {
+      p.y += p.vy;
+      p.sway += p.swaySp;
+      const px = p.x + Math.sin(p.sway) * p.swayAmp;
+      if (p.y > H + 20) Object.assign(p, spawnDrop(false));
+      if (stageTop > 0 && p.y >= stageTop && px > stageL && px < stageR) {
+        const n = 6 + ((Math.random() * 4) | 0);
+        for (let i = 0; i < n; i++)
+          splashes.push({
+            x: px,
+            y: stageTop - 2,
+            vx: (Math.random() - 0.5) * 3,
+            vy: -(0.8 + Math.random() * 2.2),
+            r: 0.8 + Math.random() * 1.5,
+            c: p.c,
+            life: 1,
+          });
+        if (splashes.length > 120) splashes.splice(0, splashes.length - 120);
+        Object.assign(p, spawnDrop(false));
+        continue;
+      }
+      ctx.save();
+      ctx.translate(px, p.y);
+      ctx.rotate(Math.sin(p.sway) * 0.16);
+      ctx.beginPath();
+      ctx.moveTo(0, -p.r * 2.15);
+      ctx.quadraticCurveTo(p.r * 0.9, -p.r * 0.75, p.r, p.r * 0.4);
+      ctx.arc(0, p.r * 0.4, p.r, 0, 3.14159, false);
+      ctx.quadraticCurveTo(-p.r * 0.9, -p.r * 0.75, 0, -p.r * 2.15);
+      ctx.globalAlpha = p.a;
+      ctx.fillStyle = `rgb(${DCOLORS[p.c]})`;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(
+        -p.r * 0.32,
+        p.r * 0.25,
+        p.r * 0.24,
+        p.r * 0.4,
+        -0.45,
+        0,
+        6.2832,
+      );
+      ctx.fillStyle = "rgba(255,255,255,.45)";
+      ctx.fill();
+      ctx.restore();
+    }
+    for (let i = splashes.length - 1; i >= 0; i--) {
+      const s = splashes[i];
+      s.x += s.vx;
+      s.y += s.vy;
+      s.vy += 0.085;
+      s.life -= 0.02 + Math.random() * 0.012;
+      if (s.life <= 0) {
+        splashes.splice(i, 1);
+        continue;
+      }
+      ctx.globalAlpha = s.life * 0.55;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r * s.life, 0, 6.2832);
+      ctx.fillStyle = `rgb(${DCOLORS[s.c]})`;
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
     for (const o of btns) {
       o.x += (o.tx - o.x) * 0.15;
       o.y += (o.ty - o.y) * 0.15;
