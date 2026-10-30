@@ -1451,3 +1451,35 @@ body {
   font-weight: 700;
   color: var(--mu);
 }
+
+/* Proof comes alive: staggered entry, count settle-pulse, copy press + burst */
+.apropos.rv.in .proofs > * {
+  animation: rise 550ms var(--resize-ease) both;
+}
+.apropos.rv.in .proofs > *:nth-child(2) {
+  animation-delay: 80ms;
+}
+.apropos.rv.in .proofs > *:nth-child(3) {
+  animation-delay: 160ms;
+}
+.proofs b.pop {
+  animation: pop var(--digit-dur) cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wacopy {
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+.wacopy:active {
+  transform: translateY(1px) scale(0.99);
+}
+.wdrop {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 8px;
+  height: 11px;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 1;
+}

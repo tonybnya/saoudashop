@@ -141,6 +141,7 @@ function render() {
     .forEach((a) => (a.href = wa(t("hello"))));
   const wn = $("#waNum");
   if (wn) wn.textContent = waFmt();
+  if (aproposSeen) countFamilies();
   renderTesti();
   $("#fb").href = FB;
   $("#call").href = "tel:+" + WA;
@@ -346,6 +347,7 @@ $("#theme").onclick = () => {
 };
 
 $("#waCopy").onclick = async () => {
+  let ok = true;
   try {
     await navigator.clipboard.writeText("+" + WA);
   } catch (e) {
@@ -356,15 +358,83 @@ $("#waCopy").onclick = async () => {
     ta.style.opacity = "0";
     document.body.append(ta);
     ta.select();
-    document.execCommand("copy");
+    ok = document.execCommand("copy");
     ta.remove();
   }
   const b = $("#waCopy");
+  if (ok && !matchMedia("(prefers-reduced-motion: reduce)").matches)
+    dropBurst(b);
   b.classList.add("copied");
   b.setAttribute("aria-label", t("copied"));
   clearTimeout(b._t);
   b._t = setTimeout(() => b.classList.remove("copied"), 1600);
 };
+
+// "Proof comes alive" overdrive: staggered tile entry (CSS), the 100+ count-up
+// when the cluster scrolls into view, and a milk-drop burst on copy success.
+function dropBurst(btn) {
+  for (let i = 0; i < 9; i++) {
+    const a = Math.random() * 2 * Math.PI,
+      r = 30 + Math.random() * 34,
+      s = 6 + Math.random() * 4,
+      drop = document.createElement("span");
+    drop.className = "wdrop";
+    drop.style.width = s + "px";
+    drop.style.height = s * 1.35 + "px";
+    // Milk / orange / green, same palette family as the hero droplets.
+    drop.style.background = i % 3 ? "rgba(224,123,22,.9)" : "rgba(22,163,74,.9)";
+    btn.append(drop);
+    drop
+      .animate(
+        [
+          { transform: "translate(-50%,-40%)", opacity: 0.95 },
+          {
+            transform: `translate(calc(-50% + ${Math.cos(a) * r}px), calc(-40% + ${Math.sin(a) * r - 14}px)) scale(.72, 1.25)`,
+            opacity: 0,
+          },
+        ],
+        { duration: 520 + Math.random() * 260, easing: "cubic-bezier(0.22,1,0.36,1)" },
+      )
+      .onfinish = () => drop.remove();
+  }
+}
+
+let aproposSeen = false,
+  counted = false;
+
+function countFamilies() {
+  if (counted) return;
+  aproposSeen = true;
+  const el = $("#abN1");
+  if (!el) return;
+  const s = T[lang] ? t("abN1") : "",
+    m = s && s.match(/^(\d+)/);
+  if (!m) return;
+  counted = true;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const target = +m[1],
+    suffix = s.slice(m[1].length), // e.g. "+" in "100+"
+    d = 1000,
+    t0 = performance.now();
+  requestAnimationFrame(function step(now) {
+    const k = Math.min(1, (now - t0) / d),
+      e = k === 1 ? 1 : 1 - Math.pow(2, -9 * k); // ease-out-expo
+    if (k < 1) {
+      el.textContent = Math.max(1, Math.round(target * e)) + suffix;
+      requestAnimationFrame(step);
+    } else {
+      el.textContent = s;
+      el.classList.add("pop");
+    }
+  });
+}
+
+new IntersectionObserver(
+  (es) => {
+    if (es[0].isIntersecting) countFamilies();
+  },
+  { threshold: 0.3 },
+).observe($("#apropos"));
 
 $("#order").onsubmit = (e) => {
   e.preventDefault();
