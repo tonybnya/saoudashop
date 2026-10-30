@@ -17,6 +17,18 @@ asking the customer's permission:
 ]
 ```
 
+Or bilingual, used by the seeded draft quotes:
+
+```json
+[
+  {
+    "text": { "fr": "…", "en": "…" },
+    "name": "Marlène",
+    "city": "Douala"
+  }
+]
+```
+
 The "What parents say" section shows on the site only when this file has at
 least one entry. Never include phone numbers or full names.
 

@@ -169,10 +169,10 @@ function renderTesti() {
   const box = $("#testi"),
     list = $("#testiList");
   if (!box || !list) return;
-  list.innerHTML = TE.map(
-    (x) =>
-      `<figure><blockquote>${x.text}</blockquote><figcaption>${x.name}${x.city ? " · " + x.city : ""}</figcaption></figure>`,
-  ).join("");
+  list.innerHTML = TE.map((x) => {
+    const q = typeof x.text === "string" ? x.text : x.text[lang] || x.text.fr;
+    return `<figure><blockquote>${q}</blockquote><figcaption>${x.name}${x.city ? " · " + x.city : ""}</figcaption></figure>`;
+  }).join("");
   box.hidden = !TE.length;
 }
 
