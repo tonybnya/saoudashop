@@ -15,6 +15,10 @@
       "fr": "Farine 87 % (blé, orge, seigle, maïs, avoine complète), sucre, cacao maigre en poudre 4,5 %, vitamines, arôme, minéraux. Contient du gluten. Peut contenir : lait.",
       "en": "Flour 87% (wheat, barley, rye, maize, whole oat), sugar, 4.5% fat-reduced cocoa powder, vitamins, flavouring, minerals. Contains gluten. May contain: milk."
     },
+    "prep": {
+      "fr": "4 cuillères (1 cuillère = 3 g) dans 200 ml du lait habituel dès 10 mois, ou 5 cuillères dans 240 ml dès 12 mois. Lait chaud ou froid.",
+      "en": "4 spoons (1 spoon = 3 g) into 200 ml of usual milk from 10 months, or 5 spoons into 240 ml from 12 months. Milk hot or cold."
+    },
     "stock": "in",
     "stage": "assets/cereales/nestle-babicao-boite-stage.webp"
   },
@@ -33,6 +37,10 @@
     "ing": {
       "fr": "Farine 89 % (blé, orge, seigle, maïs, avoine complète), miel 9,3 %, sucre, vitamines, minéraux, arôme. Contient du gluten. Peut contenir : lait.",
       "en": "Flour 89% (wheat, barley, rye, maize, whole oat), honey 9.3%, sugar, vitamins, minerals, flavouring. Contains gluten. May contain: milk."
+    },
+    "prep": {
+      "fr": "4 cuillères (1 cuillère = 3 g) dans 200 ml du lait habituel dès 10 mois, ou 5 cuillères dans 240 ml dès 12 mois. Lait chaud ou froid.",
+      "en": "4 spoons (1 spoon = 3 g) into 200 ml of usual milk from 10 months, or 5 spoons into 240 ml from 12 months. Milk hot or cold."
     },
     "stock": "in",
     "stage": "assets/cereales/nestle-babimiel-boite-stage.webp"
@@ -53,6 +61,10 @@
       "fr": "Farine 94 % (blé, orge, seigle, maïs, avoine complète), sucre, vitamines, arôme (vanilline), arôme naturel de vanille, minéraux. Contient du gluten. Peut contenir : lait.",
       "en": "Flour 94% (wheat, barley, rye, maize, whole oat), sugar, vitamins, flavouring (vanillin), natural vanilla flavouring, minerals. Contains gluten. May contain: milk."
     },
+    "prep": {
+      "fr": "4 cuillères (1 cuillère = 3 g) dans 200 ml du lait habituel dès 10 mois, ou 5 cuillères dans 240 ml dès 12 mois. Lait chaud ou froid.",
+      "en": "4 spoons (1 spoon = 3 g) into 200 ml of usual milk from 10 months, or 5 spoons into 240 ml from 12 months. Milk hot or cold."
+    },
     "stock": "in",
     "stage": "assets/cereales/nestle-babivanille-boite-stage.webp"
   },
@@ -65,6 +77,7 @@
     "age": 6,
     "w": "415 g",
     "b": 23,
+    "pct": 98.6,
     "fr": "Vanille, 5 céréales",
     "en": "Vanilla, 5 cereals",
     "ing": {
@@ -72,6 +85,10 @@
       "en": "Flour 98.6% (wheat, barley, rye, maize, whole oat), minerals, vitamins, natural vanilla flavouring. Contains gluten. May contain: milk."
     },
     "stock": "out",
+    "prep": {
+      "fr": "3 cuillères dans 210 ml du lait habituel dès 6 mois, ou 4 cuillères dans 240 ml dès 8 mois.",
+      "en": "3 spoons into 210 ml of usual milk from 6 months, or 4 spoons into 240 ml from 8 months."
+    },
     "stage": "assets/cereales/nestle-ptite-cereale-5-cereales-vanille-boite-stage.webp"
   },
   {
@@ -83,6 +100,7 @@
     "age": 12,
     "w": "415 g",
     "b": 17,
+    "pct": 96.5,
     "fr": "Vanille saveur biscuit, céréales complètes",
     "en": "Vanilla biscuit flavour, whole grains",
     "ing": {
@@ -90,6 +108,10 @@
       "en": "Flour 96.5% (wheat, whole wheat 23.4%, whole oat 10%, maize, rye, barley, spelt, rice, triticale), vegetable oils, minerals, vitamins, flavourings. Contains gluten. May contain: milk."
     },
     "stock": "out",
+    "prep": {
+      "fr": "4 cuillères (1 cuillère = 6 g) dans 210 ml du lait habituel, dès 12 mois.",
+      "en": "4 spoons (1 spoon = 6 g) into 210 ml of usual milk, from 12 months."
+    },
     "stage": "assets/cereales/nestle-ptite-cereale-cereales-completes-8-cereales-boite-stage.webp"
   },
   {
@@ -101,12 +123,17 @@
     "age": 12,
     "w": "415 g",
     "b": 17,
+    "pct": 93,
     "stock": "out",
     "fr": "Chocolat saveur biscuit, céréales complètes",
     "en": "Chocolate biscuit flavour, whole grains",
     "ing": {
       "fr": "Farine 93 % (blé diastasé, blé complet 22,5 %, avoine complète 9,7 %, orge, seigle, maïs, épeautre, riz, triticale), chocolat 4,5 % (sucre, pâte de cacao, beurre de cacao), huiles végétales, minéraux, vitamines, arômes, antioxydants. Contient du gluten. Peut contenir : lait.",
       "en": "Flour 93% (malted wheat, whole wheat 22.5%, whole oat 9.7%, barley, rye, maize, spelt, rice, triticale), chocolate 4.5% (sugar, cocoa mass, cocoa butter), vegetable oils, minerals, vitamins, flavourings, antioxidants. Contains gluten. May contain: milk."
+    },
+    "prep": {
+      "fr": "4 cuillères (1 cuillère = 6 g) dans 210 ml de lait chaud (max 40 °C) pour des pépites bien fondantes, dès 12 mois.",
+      "en": "4 spoons (1 spoon = 6 g) into 210 ml of warm milk (max 40°C) so the biscuit pebbles melt nicely, from 12 months."
     },
     "stage": "assets/cereales/nestle-ptite-cereale-cereales-completes-chocolat-saveur-biscuit-boite-stage.webp"
   }

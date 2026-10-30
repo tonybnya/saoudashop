@@ -125,9 +125,11 @@ function render() {
     .map((p, i) => {
       const out = (p.stock || "in") === "out";
       const st = p.stock || "in";
+      const pctTxt = p.pct ? (lang === "fr" ? String(p.pct).replace(".", ",") : String(p.pct)) : "";
       return `<article class="card${out ? " out" : ""}" style="--d:${Math.min(i, 8) * 60}ms">${can(p)}<h3>${p.n}</h3><div>${p[lang]}</div>
-  <div class="tags"><span>${t("f").replace("{a}", p.age)}</span><span>${p.w}</span><span>${t("bib").replace("{b}", p.b)}</span></div>
-  <div class="actions"><button class="btn o view" data-v="${p.id}"><i class="hgi-stroke hgi-view" aria-hidden="true"></i> ${t("view")}</button><span class="stock ${st}">${t("stock_" + st)}</span></div>
+  <div class="tags">${p.pct ? `<span>${t("pcer").replace("{p}", pctTxt)}</span>` : ""}<span>${t("f").replace("{a}", p.age)}</span><span>${p.w}</span><span>${t("bib").replace("{b}", p.b)}</span></div>
+  ${p.prep ? `<p class="prep">${p.prep[lang]}</p>` : ""}
+  <div class="actions"><button class="btn wa buy" data-o="${p.id}"${out ? " disabled" : ""}><i class="hgi-stroke hgi-shopping-cart-01" aria-hidden="true"></i> ${t("buy")}</button><button class="btn o view" data-v="${p.id}"><i class="hgi-stroke hgi-view" aria-hidden="true"></i> ${t("view")}</button><span class="stock ${st}">${t("stock_" + st)}</span></div>
   <details><summary>${t("ing")}</summary><p>${p.ing[lang]}</p>${p.fiche ? `<img src="${p.fiche}" alt="${p.n}" loading="lazy" style="width:100%;border-radius:12px;margin-top:8px">` : ""}</details>
   <div class="qty"><span class="pr">${fmt(PRICE)}</span><div class="q"><button data-m="${p.id}" aria-label="-"${out ? " disabled" : ""}><i class="hgi-stroke hgi-minus-sign" aria-hidden="true"></i></button><output>${cart[p.id] || 0}</output><button data-p="${p.id}" aria-label="+"${out ? " disabled" : ""}><i class="hgi-stroke hgi-plus-sign" aria-hidden="true"></i></button></div></div></article>`;
     })
@@ -227,6 +229,7 @@ function openModal(id) {
     .join("");
   showSlide(0);
   $("#mIng").textContent = p.ing[lang];
+  $("#mPrep").textContent = t("prepK") + p.prep[lang];
   $("#mPrice").textContent = fmt(PRICE);
   const mst = $("#mStock"),
     st = p.stock || "in";
@@ -246,6 +249,20 @@ $("#grid").onclick = (e) => {
   const v = e.target.closest("[data-v]");
   if (v) {
     openModal(v.dataset.v);
+    return;
+  }
+  const o = e.target.closest("[data-o]");
+  if (o && !o.disabled) {
+    const id = o.dataset.o;
+    if (!cart[id]) {
+      cart[id] = 1;
+      saveCart();
+      const out = o.closest(".card").querySelector("output");
+      out.textContent = cart[id];
+      out.classList.add("pop");
+      sum();
+    }
+    $("#commande").scrollIntoView({ block: "start" });
     return;
   }
   const b = e.target.closest("button");

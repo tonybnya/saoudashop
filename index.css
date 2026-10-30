@@ -1483,3 +1483,32 @@ body {
   pointer-events: none;
   z-index: 1;
 }
+
+/* Catalog: per-product official preparation line, primary order button */
+.prep {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--mu);
+}
+#mPrep {
+  margin: 0;
+  color: var(--mu);
+  font-size: 0.92rem;
+}
+.btn.buy {
+  padding: 9px 16px;
+  font-size: 0.92rem;
+  box-shadow: 0 6px 14px rgba(22, 163, 74, 0.25);
+}
+.btn.buy i {
+  font-size: 1.1rem;
+}
+.btn.buy:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.btn.buy:disabled::after {
+  display: none;
+}
