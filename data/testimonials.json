@@ -46,5 +46,21 @@
     },
     "name": "Estelle",
     "city": "Kribi"
+  },
+  {
+    "text": {
+      "fr": "Le colis est bien arrivé à Foumbot, bien fermé, dans la boîte d'origine. Je commanderai à nouveau.",
+      "en": "The parcel arrived safely in Foumbot, well sealed, in the original box. I'll order again."
+    },
+    "name": "Aïcha",
+    "city": "Foumbot"
+  },
+  {
+    "text": {
+      "fr": "Commandé de Bafoussam et reçu rapidement : boîte intacte, suivi sur WhatsApp tout au long.",
+      "en": "Ordered from Bafoussam and received quickly: box intact, follow-up on WhatsApp all the way."
+    },
+    "name": "Frida",
+    "city": "Bafoussam"
   }
 ]

@@ -1531,6 +1531,12 @@ body {
 .apropos.rv.in #testiList figure:nth-child(6) {
   animation-delay: 350ms;
 }
+.apropos.rv.in #testiList figure:nth-child(7) {
+  animation-delay: 420ms;
+}
+.apropos.rv.in #testiList figure:nth-child(8) {
+  animation-delay: 490ms;
+}
 
 /* Proof comes alive: staggered entry, count settle-pulse, copy press + burst */
 .apropos.rv.in .proofs > * {
