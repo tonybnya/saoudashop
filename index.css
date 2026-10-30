@@ -1384,6 +1384,7 @@ body {
   cursor: pointer;
   text-align: left;
   border: 2px solid var(--wa);
+  border-radius: 18px;
   background: var(--sf);
   padding: 14px 46px 14px 16px;
   display: grid;
