@@ -197,7 +197,55 @@ function sum() {
 }
 
 let mImgs = [],
-  mIdx = 0;
+  mIdx = 0,
+  mItem = null,
+  mFrom = null;
+
+// Overdrive helpers: browser-native motion, all with reduced-motion + old
+// browser fallbacks back to the pre-existing CSS animations.
+const vtOn = () =>
+  document.startViewTransition &&
+  !matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// First add-to-cart: the product can jumps into the header cart badge.
+function flyToCart(src, from) {
+  const to = $("#cartBtn").getBoundingClientRect(),
+    dx = to.left + to.width / 2 - (from.left + from.width / 2),
+    dy = to.top + to.height / 2 - (from.top + from.height / 2),
+    el = document.createElement("img");
+  el.src = src;
+  el.alt = "";
+  el.className = "flycan";
+  el.style.left = from.left + from.width / 2 - 23 + "px";
+  el.style.top = from.top + from.height / 2 - 23 + "px";
+  document.body.append(el);
+  el.animate(
+    [
+      { transform: "translate(0,0) scale(1)", opacity: 1 },
+      {
+        transform: `translate(${dx * 0.55}px, ${dy * 0.55 - 60}px) scale(.8)`,
+        offset: 0.55,
+      },
+      { transform: `translate(${dx}px, ${dy}px) scale(.25)`, opacity: 0.35 },
+    ],
+    { duration: 720, easing: "cubic-bezier(0.32, 0.9, 0.28, 1)" },
+  ).onfinish = () => el.remove();
+}
+
+function hideToast() {
+  const t = $("#toast");
+  clearTimeout(t._h);
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const a = t.animate(
+      [{ opacity: 1 }, { opacity: 0, transform: "translateY(10px)" }],
+      { duration: 180, easing: "ease" },
+    );
+    a.onfinish = () => (t.hidden = true);
+    a.oncancel = () => (t.hidden = true);
+    return;
+  }
+  t.hidden = true;
+}
 
 function showSlide(i) {
   if (!mImgs.length) return;
@@ -216,28 +264,44 @@ function showSlide(i) {
   $("#mDots").style.display = solo ? "none" : "";
 }
 
-function openModal(id) {
+function openModal(id, srcEl) {
   const p = P.find((x) => x.id === id);
   if (!p) return;
-  $("#mTitle").textContent = `${p.n} – ${p.w}`;
-  $("#mSub").textContent =
-    `${p[lang]} · ${t("f").replace("{a}", p.age)} · ${fmt(PRICE)}`;
-  mImgs = [{ src: p.img, alt: p.n }];
-  if (p.fiche) mImgs.push({ src: p.fiche, alt: p.n });
-  $("#mTrack").innerHTML = mImgs
-    .map((g) => `<div class="slide"><img src="${g.src}" alt="${g.alt}"></div>`)
-    .join("");
-  showSlide(0);
-  $("#mIng").textContent = p.ing[lang];
-  $("#mPrep").textContent = t("prepK") + p.prep[lang];
-  $("#mPrice").textContent = fmt(PRICE);
-  const mst = $("#mStock"),
-    st = p.stock || "in";
-  mst.textContent = t("stock_" + st);
-  mst.className = "stock " + st;
-  $("#modal").hidden = false;
-  document.body.style.overflow = "hidden";
-  $("#mClose").focus();
+  mItem = id;
+  mFrom = srcEl || null;
+  const fill = () => {
+    $("#mTitle").textContent = `${p.n} – ${p.w}`;
+    $("#mSub").textContent =
+      `${p[lang]} · ${t("f").replace("{a}", p.age)} · ${fmt(PRICE)}`;
+    mImgs = [{ src: p.img, alt: p.n }];
+    if (p.fiche) mImgs.push({ src: p.fiche, alt: p.n });
+    $("#mTrack").innerHTML = mImgs
+      .map((g) => `<div class="slide"><img src="${g.src}" alt="${g.alt}"></div>`)
+      .join("");
+    showSlide(0);
+    $("#mIng").textContent = p.ing[lang];
+    $("#mPrep").textContent = t("prepK") + p.prep[lang];
+    $("#mPrice").textContent = fmt(PRICE);
+    const mst = $("#mStock"),
+      st = p.stock || "in";
+    mst.textContent = t("stock_" + st);
+    mst.className = "stock " + st;
+    $("#modal").hidden = false;
+    document.body.style.overflow = "hidden";
+    $("#mClose").focus();
+  };
+  // Overdrive: the card morphs into the sheet — same view-transition-name pair
+  // (card in the old snapshot, sheet in the new). No VT: plain cssin animations.
+  if (vtOn() && srcEl) {
+    srcEl.style.viewTransitionName = "product";
+    document.startViewTransition(() => {
+      srcEl.style.viewTransitionName = ""; // new state: the sheet carries the name
+      fill();
+    });
+  } else {
+    $("#modal").classList.add("cssin");
+    fill();
+  }
 }
 
 function closeModal() {
@@ -245,10 +309,35 @@ function closeModal() {
   document.body.style.overflow = "";
 }
 
+function closeSheet() {
+  // Morph the sheet back onto the element that opened it (hero box or card).
+  let card = null,
+    src = mFrom;
+  if (!src && mItem) {
+    const btn = document.querySelector(`.card button[data-o="${mItem}"]`);
+    card = btn ? btn.closest(".card") : null;
+    src = card;
+  }
+  if (!vtOn() || !src) {
+    closeModal();
+    mFrom = null;
+    return;
+  }
+  const vt = document.startViewTransition(() => {
+    if (src) src.style.viewTransitionName = "product";
+    closeModal();
+  });
+  vt.finished.finally(() => {
+    if (card) card.style.viewTransitionName = "";
+    if (mFrom) mFrom.style.viewTransitionName = "";
+    mFrom = null;
+  });
+}
+
 $("#grid").onclick = (e) => {
   const v = e.target.closest("[data-v]");
   if (v) {
-    openModal(v.dataset.v);
+    openModal(v.dataset.v, v.closest(".card").querySelector(".can"));
     return;
   }
   const o = e.target.closest("[data-o]");
@@ -261,6 +350,10 @@ $("#grid").onclick = (e) => {
       out.textContent = cart[id];
       out.classList.add("pop");
       sum();
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const im = o.closest(".card").querySelector(".can img");
+        if (im) flyToCart(im.currentSrc || im.src, im.getBoundingClientRect());
+      }
     }
     $("#commande").scrollIntoView({ block: "start" });
     return;
@@ -281,7 +374,7 @@ $("#grid").onclick = (e) => {
     const toast = $("#toast");
     toast.hidden = false;
     clearTimeout(toast._h);
-    toast._h = setTimeout(() => (toast.hidden = true), 3200);
+    toast._h = setTimeout(hideToast, 3200);
   }
 };
 
@@ -302,7 +395,7 @@ $("#sbox").onclick = () => {
     sSwiped = false;
     return;
   }
-  if (P[sIdx]) openModal(P[sIdx].id);
+  if (P[sIdx]) openModal(P[sIdx].id, $("#sbox"));
 };
 for (const ev of ["pointerenter", "focusin"]) {
   $("#showcase").addEventListener(ev, () => clearInterval(sTimer));
@@ -338,7 +431,9 @@ $("#lang").onclick = () => {
   try {
     localStorage.setItem("lang", lang);
   } catch (e) {}
-  render();
+  // Overdrive: the whole page dissolves into the other language.
+  if (vtOn()) document.startViewTransition(render);
+  else render();
 };
 
 function syncThemeIcon() {
@@ -355,12 +450,25 @@ function syncThemeIcon() {
 
 $("#theme").onclick = () => {
   const d = document.documentElement,
-    dark = d.dataset.theme === "dark";
-  d.dataset.theme = dark ? "light" : "dark";
-  try {
-    localStorage.setItem("theme", d.dataset.theme);
-  } catch (e) {}
-  syncThemeIcon();
+    apply = () => {
+      const dark = d.dataset.theme === "dark";
+      d.dataset.theme = dark ? "light" : "dark";
+      try {
+        localStorage.setItem("theme", d.dataset.theme);
+      } catch (e) {}
+      syncThemeIcon();
+    };
+  // Overdrive: the new theme sweeps in from the toggle button.
+  if (vtOn()) {
+    const r = $("#theme").getBoundingClientRect();
+    d.style.setProperty("--tt-x", r.left + r.width / 2 + "px");
+    d.style.setProperty("--tt-y", r.top + r.height / 2 + "px");
+    try {
+      document.startViewTransition({ update: apply, types: ["theme"] });
+    } catch (e) {
+      document.startViewTransition(apply);
+    }
+  } else apply();
 };
 
 $("#waCopy").onclick = async () => {
@@ -541,13 +649,10 @@ async function boot() {
   }
 }
 
-$("#mClose").onclick = closeModal;
-$("#toast").onclick = () => {
-  clearTimeout($("#toast")._h);
-  $("#toast").hidden = true;
-};
+$("#mClose").onclick = () => closeSheet();
+$("#toast").onclick = hideToast;
 $("#modal").addEventListener("click", (e) => {
-  if (e.target === $("#modal")) closeModal();
+  if (e.target === $("#modal")) closeSheet();
 });
 $("#mPrev").onclick = (e) => {
   e.stopPropagation();
@@ -575,7 +680,7 @@ $("#mSlider").addEventListener("touchend", (e) => {
 });
 addEventListener("keydown", (e) => {
   if ($("#modal").hidden) return;
-  if (e.key === "Escape") closeModal();
+  if (e.key === "Escape") closeSheet();
   if (e.key === "ArrowLeft") showSlide(mIdx - 1);
   if (e.key === "ArrowRight") showSlide(mIdx + 1);
 });
