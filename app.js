@@ -171,7 +171,7 @@ function renderTesti() {
   if (!box || !list) return;
   list.innerHTML = TE.map((x) => {
     const q = typeof x.text === "string" ? x.text : x.text[lang] || x.text.fr;
-    return `<figure><blockquote>${q}</blockquote><figcaption>${x.name}${x.city ? " · " + x.city : ""}</figcaption></figure>`;
+    return `<figure><blockquote>${q}</blockquote><figcaption><span class="avatar" aria-hidden="true">${(x.name || "?").charAt(0).toUpperCase()}</span><span>${x.name}${x.city ? " · " + x.city : ""}</span><i class="hgi-stroke hgi-check-check tick" aria-hidden="true"></i></figcaption></figure>`;
   }).join("");
   box.hidden = !TE.length;
 }

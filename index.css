@@ -1438,23 +1438,103 @@ body {
 }
 #testiList figure {
   margin: 0;
-  background: var(--sf);
-  border: 1px solid var(--bd);
-  border-radius: 18px;
-  padding: 16px;
+  position: relative;
+  background: #d9f2e3;
+  border: 1px solid rgba(22, 163, 74, 0.28);
+  border-radius: 18px 18px 18px 4px;
+  padding: 16px 18px;
+  transition:
+    transform var(--resize-dur) var(--resize-ease),
+    box-shadow var(--resize-dur) var(--resize-ease);
+}
+#testiList figure:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.16);
+}
+#testiList figure::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 16px;
+  width: 12px;
+  height: 12px;
+  background: #d9f2e3;
+  border-left: 1px solid rgba(22, 163, 74, 0.28);
+  border-bottom: 1px solid rgba(22, 163, 74, 0.28);
+  transform: rotate(45deg);
+}
+:root[data-theme="dark"] #testiList figure {
+  background: #1f2d22;
+  border-color: rgba(34, 197, 94, 0.3);
+}
+:root[data-theme="dark"] #testiList figure::after {
+  background: #1f2d22;
+  border-color: rgba(34, 197, 94, 0.4);
 }
 #testiList blockquote {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 }
 #testiList figcaption {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--mu);
+  color: #15803d;
+}
+:root[data-theme="dark"] #testiList figcaption {
+  color: var(--wa);
+}
+#testiList .avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  font: 800 0.85rem "Baloo 2";
+  flex-shrink: 0;
+}
+#testiList figure:nth-child(3n + 1) .avatar {
+  background: #dcebfb;
+  color: #1f6ab0;
+}
+#testiList figure:nth-child(3n + 2) .avatar {
+  background: #ffe7c7;
+  color: #c05f0a;
+}
+#testiList figure:nth-child(3n) .avatar {
+  background: #e4e0fb;
+  color: #5b4bc4;
+}
+#testiList .tick {
+  margin-left: auto;
+  color: var(--ac);
+  font-size: 1.05rem;
+  display: inline-flex;
+}
+#testiList figure {
+  /* chat replay: each bubble lands after the previous one */
+  animation: rise 550ms var(--resize-ease) backwards;
+}
+.apropos.rv.in #testiList figure:nth-child(2) {
+  animation-delay: 70ms;
+}
+.apropos.rv.in #testiList figure:nth-child(3) {
+  animation-delay: 140ms;
+}
+.apropos.rv.in #testiList figure:nth-child(4) {
+  animation-delay: 210ms;
+}
+.apropos.rv.in #testiList figure:nth-child(5) {
+  animation-delay: 280ms;
+}
+.apropos.rv.in #testiList figure:nth-child(6) {
+  animation-delay: 350ms;
 }
 
 /* Proof comes alive: staggered entry, count settle-pulse, copy press + burst */
 .apropos.rv.in .proofs > * {
-  animation: rise 550ms var(--resize-ease) both;
+  animation: rise 550ms var(--resize-ease) backwards;
 }
 .apropos.rv.in .proofs > *:nth-child(2) {
   animation-delay: 80ms;
