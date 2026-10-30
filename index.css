@@ -9,6 +9,9 @@
   --wa: #16a34a;
   --bd: #f0dfc8;
   --soft: #fdeed7;
+  --milk: 255,255,255;
+  --milk2: 255,240,214;
+  --milk3: 224,123,22;
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -24,6 +27,9 @@
   --wa: #22c55e;
   --bd: #44362b;
   --soft: #35281e;
+  --milk: 255,255,255;
+  --milk2: 255,240,214;
+  --milk3: 242,153,58;
 }
 html {
   scroll-behavior: smooth;
