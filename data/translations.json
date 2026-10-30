@@ -2,14 +2,23 @@
   "fr": {
     "brand": "SaoudaShop",
     "price": "Toutes les boîtes à 5 000 FCFA",
-    "h1": "Les céréales Nestlé pour bébé, livrées à Douala et expédiées dans tout le Cameroun",
-    "lead": "Choisissez selon l'âge de bébé, envoyez votre commande sur WhatsApp, payez en espèces ou par Mobile Money. Livraison à Douala, retrait par une personne de votre choix, ou expédition dans tout le Cameroun à vos frais.",
+    "h1": "Céréales Nestlé pour bébé, source de fer et de vitamines, livrées à Douala, ou expédiées partout au Cameroun",
+    "lead": "Vous choisissez la boîte selon l'âge, un message WhatsApp et elle part chez vous : paiement en espèces, MoMo ou Orange Money à la réception. Expédition possible partout au Cameroun.",
     "ctaWa": "Commander sur WhatsApp",
     "ctaCat": "Voir les céréales",
     "t1": "Produits importés de France",
     "t2": "Date de péremption vérifiée",
     "t3": "Livraison à Douala ou expédition dans tout le Cameroun",
     "t4": "Espèces, MoMo ou OM",
+    "abH": "Derrière SaoudaShop, il y a Sodétou",
+    "abS": "SaoudaShop est une petite boutique locale : chaque commande est confirmée sur WhatsApp, et chaque boîte est contrôlée (date de péremption) avant d'être livrée.",
+    "abN1": "100+",
+    "abL1": "Familles servies à Douala et à travers le Cameroun",
+    "abN2": "Dès 1 000 FCFA",
+    "abL2": "Livraison à Douala, selon le quartier, expédition à travers le Cameroun à vos frais",
+    "abL3": "Copier le numéro de téléphone (WhatsApp & appel)",
+    "copied": "Numéro copié !",
+    "testiH": "Ce que les parents en disent",
     "catH": "Nos céréales",
     "catS": "Même prix pour toutes : 5 000 FCFA la boîte. Filtrez par âge indiqué sur la boîte.",
     "all": "Toutes",
@@ -18,6 +27,9 @@
     "bib": "{b} biberons env.",
     "add": "Ajouter",
     "ing": "Ingrédients et allergènes",
+    "buy": "Commander",
+    "pcer": "{p} % de céréales",
+    "prepK": "Préparation : ",
     "view": "Voir",
     "stock_in": "Disponible",
     "stock_low": "Limité",
@@ -31,15 +43,15 @@
     "pay": "Mode de paiement",
     "cash": "Espèces à la livraison",
     "send": "Envoyer ma commande sur WhatsApp",
-    "ordNote": "Frais de livraison selon le quartier, ou d'expédition selon la destination, confirmés sur WhatsApp avant toute commande ferme.",
+    "ordNote": "Livraison à Douala dès 1 000 FCFA selon le quartier, expédition selon la destination : les frais exacts sont confirmés sur WhatsApp avant toute commande ferme.",
     "delH": "Comment ça marche",
-    "delS": "Simple et sans mauvaise surprise.",
+    "delS": "Livraison à Douala dès 1 000 FCFA selon le quartier. Simple et sans mauvaise surprise.",
     "s1h": "1. Vous commandez",
-    "s1": "Par ce site, sur WhatsApp ou via notre page Facebook.",
+    "s1": "Choisissez les boîtes selon l'âge de bébé, puis commandez ici, sur WhatsApp ou via notre page Facebook.",
     "s2h": "2. On confirme",
-    "s2": "Disponibilité, frais de livraison et heure de passage confirmés avec vous.",
-    "s3h": "3. On vous livre",
-    "s3": "À Douala, par une personne de votre choix, ou par expédition partout au Cameroun (frais d'expédition à votre charge). Vous payez à la réception.",
+    "s2": "Disponibilité, frais exacts et heure de passage confirmés avec vous sur WhatsApp.",
+    "s3h": "3. On livre, vous payez",
+    "s3": "Livraison à Douala dès 1 000 FCFA selon le quartier, retrait par une personne de votre choix, ou expédition partout au Cameroun à vos frais. Paiement à la réception : espèces, MoMo ou Orange Money.",
     "faqH": "Questions fréquentes",
     "faq": [
       [
@@ -52,11 +64,11 @@
       ],
       [
         "Quelle céréale choisir ?",
-        "Suivez l'âge indiqué sur chaque boîte : dès 6 mois, dès 10 mois ou dès 12 mois. En cas de doute, demandez l'avis de votre pédiatre."
+        "Suivez l'âge indiqué sur chaque boîte : dès 6 mois, dès 10 mois ou dès 12 mois. La préparation (lait et cuillères) est indiquée sur chaque carte produit. En cas de doute, demandez l'avis de votre pédiatre."
       ],
       [
         "Où livrez-vous ?",
-        "À Douala, ou récupérée par une personne de votre choix. Nous expédions aussi partout au Cameroun : les frais d'expédition sont à votre charge. Indiquez votre quartier ou votre ville, nous vous confirmons les frais et le délai."
+        "À Douala : dès 1 000 FCFA selon le quartier, ou récupération par une personne de votre choix. Ailleurs au Cameroun : expédition, frais d'expédition à votre charge. Indiquez votre quartier ou votre ville, nous vous confirmons les frais et le délai sur WhatsApp."
       ],
       [
         "Comment conserver une boîte ?",
@@ -92,14 +104,23 @@
   "en": {
     "brand": "SaoudaShop",
     "price": "Every box at 5,000 FCFA",
-    "h1": "Nestlé baby cereals, delivered in Douala and shipped across Cameroon",
-    "lead": "Pick by your baby's age, send your order on WhatsApp, pay cash or Mobile Money. Delivery in Douala, pickup by someone you designate, or shipping across Cameroon at your expense.",
+    "h1": "Nestlé baby cereals, a source of iron and vitamins, delivered in Douala, or shipped anywhere in Cameroon",
+    "lead": "Pick the box for your baby's age, send one WhatsApp message and it leaves for your door: pay cash, MoMo or Orange Money on receipt. Shipping across Cameroon available.",
     "ctaWa": "Order on WhatsApp",
     "ctaCat": "See the cereals",
     "t1": "Imported from France",
     "t2": "Expiry date checked",
     "t3": "Delivery in Douala or shipping across Cameroon",
     "t4": "Cash, MoMo or OM",
+    "abH": "Behind SaoudaShop: Sodétou",
+    "abS": "SaoudaShop is a small local shop: every order is confirmed on WhatsApp, and every box is checked (expiry date) before delivery.",
+    "abN1": "100+",
+    "abL1": "Families served in Douala and across Cameroon",
+    "abN2": "From 1,000 F",
+    "abL2": "Delivery in Douala, depending on the area, or shipping across Cameroon at your expense",
+    "abL3": "Copy the phone number (WhatsApp & call)",
+    "copied": "Number copied!",
+    "testiH": "What parents say",
     "catH": "Our cereals",
     "catS": "One price for all: 5,000 FCFA per box. Filter by the age shown on the box.",
     "all": "All",
@@ -108,6 +129,9 @@
     "bib": "approx. {b} bottles",
     "add": "Add",
     "ing": "Ingredients and allergens",
+    "buy": "Order",
+    "pcer": "{p}% cereals",
+    "prepK": "How to use: ",
     "view": "View",
     "stock_in": "Available",
     "stock_low": "Limited",
@@ -121,15 +145,15 @@
     "pay": "Payment method",
     "cash": "Cash on delivery",
     "send": "Send my order on WhatsApp",
-    "ordNote": "Delivery fee depends on the area, or shipping fee on the destination, confirmed on WhatsApp before your order is final.",
+    "ordNote": "Delivery in Douala from 1,000 FCFA depending on the area, shipping depending on destination: exact fees are confirmed on WhatsApp before your order is final.",
     "delH": "How it works",
-    "delS": "Simple, no surprises.",
+    "delS": "Delivery in Douala from 1,000 FCFA depending on the area. Simple, no surprises.",
     "s1h": "1. You order",
-    "s1": "Through this site, on WhatsApp or via our Facebook page.",
+    "s1": "Pick the box for your baby's age, then order right here, on WhatsApp or via our Facebook page.",
     "s2h": "2. We confirm",
-    "s2": "Availability, delivery fee and time confirmed with you.",
-    "s3h": "3. We deliver",
-    "s3": "Across Douala, by someone you designate, or shipped anywhere in Cameroon (shipping fees at your expense). You pay on receipt.",
+    "s2": "Availability, exact fee and time confirmed with you on WhatsApp.",
+    "s3h": "3. We deliver, you pay",
+    "s3": "Delivery in Douala from 1,000 FCFA depending on the area, pickup by someone you designate, or shipping across Cameroon at your expense. You pay on reception: cash, MoMo or Orange Money.",
     "faqH": "FAQ",
     "faq": [
       [
@@ -142,11 +166,11 @@
       ],
       [
         "Which cereal should I choose?",
-        "Follow the age printed on each box: from 6, 10 or 12 months. If in doubt, ask your paediatrician."
+        "Follow the age printed on each box: from 6, 10 or 12 months. How to prepare (milk and spoons) is shown on each product card. If in doubt, ask your paediatrician."
       ],
       [
         "Where do you deliver?",
-        "Across Douala, or picked up by someone you designate. We also ship anywhere in Cameroon: shipping fees are at your expense. Tell us your area or city and we'll confirm the fee and timing."
+        "In Douala: from 1,000 FCFA depending on the area, or pickup by someone you designate. Elsewhere in Cameroon: shipping, fees at your expense. Tell us your area or city and we'll confirm the fee and timing on WhatsApp."
       ],
       [
         "How do I store a box?",

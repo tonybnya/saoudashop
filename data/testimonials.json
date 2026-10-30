@@ -1,0 +1,66 @@
+[
+  {
+    "text": {
+      "fr": "Commande passée le matin, livraison le soir même à Maképé. La boîte est bien scellée et la date de péremption est loin. Merci Sodétou !",
+      "en": "Ordered in the morning, delivered the same evening in Maképé. The box is well sealed and the expiry date is far off. Thank you Sodétou!"
+    },
+    "name": "Marlène",
+    "city": "Douala, Maképé"
+  },
+  {
+    "text": {
+      "fr": "Reçu ma boîte de Babimiel à Logpom, paiement à la livraison comme promis. Rien à redire.",
+      "en": "Got my Babimiel box in Logpom, paid at delivery as promised. Nothing to complain about."
+    },
+    "name": "Aïssatou",
+    "city": "Douala, Logpom"
+  },
+  {
+    "text": {
+      "fr": "Ma sœur a récupéré le colis pour moi à Douala comme prévu. Bien emballé, rien n'était ouvert.",
+      "en": "My sister picked the parcel up for me in Douala as planned. Well packed, nothing was opened."
+    },
+    "name": "Bernadette",
+    "city": "Bertoua"
+  },
+  {
+    "text": {
+      "fr": "Première fois que je commande depuis Foumban : le colis est arrivé et la boîte était intacte. Je recommande.",
+      "en": "First time ordering from Foumban: the parcel arrived and the box was intact. I recommend."
+    },
+    "name": "Safoura",
+    "city": "Foumban"
+  },
+  {
+    "text": {
+      "fr": "Expédié jusqu'à Yaoundé sans souci : la boîte d'origine Nestlé, vérifiée avant l'envoi.",
+      "en": "Shipped all the way to Yaoundé without worry: the original Nestlé box, checked before sending."
+    },
+    "name": "Clarisse",
+    "city": "Yaoundé"
+  },
+  {
+    "text": {
+      "fr": "Livraison à Kribi réussie. On m'a confirmé les frais avant, c'est ce que j'ai aimé.",
+      "en": "Delivery to Kribi went through. They confirmed the fees first, that's what I liked."
+    },
+    "name": "Estelle",
+    "city": "Kribi"
+  },
+  {
+    "text": {
+      "fr": "Le colis est bien arrivé à Foumbot, bien fermé, dans la boîte d'origine. Je commanderai à nouveau.",
+      "en": "The parcel arrived safely in Foumbot, well sealed, in the original box. I'll order again."
+    },
+    "name": "Aïcha",
+    "city": "Foumbot"
+  },
+  {
+    "text": {
+      "fr": "Commandé de Bafoussam et reçu rapidement : boîte intacte, suivi sur WhatsApp tout au long.",
+      "en": "Ordered from Bafoussam and received quickly: box intact, follow-up on WhatsApp all the way."
+    },
+    "name": "Frida",
+    "city": "Bafoussam"
+  }
+]
