@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --bg: #fff8ee;
   --sf: #fff;
   --tx: #3a2a20;
@@ -17,6 +18,7 @@
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #1d1612;
   --sf: #2a211b;
   --tx: #f5e9dc;
@@ -128,7 +130,7 @@ header .w {
 }
 #theme[data-mode="dark"] .i-sun {
   display: inline-flex;
-  animation: pop 300ms cubic-bezier(0.34, 1.45, 0.64, 1);
+  animation: pop 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 #theme[data-mode="dark"] .i-moon {
   display: none;
@@ -455,6 +457,9 @@ header .w {
   display: grid;
   place-items: center;
   padding: 18px;
+  animation: none;
+}
+.modal.cssin {
   animation: fadein 220ms ease-out;
 }
 .modal[hidden] {
@@ -474,6 +479,10 @@ header .w {
   padding: 22px;
   display: grid;
   gap: 10px;
+  animation: none;
+  view-transition-name: product;
+}
+.modal.cssin .sheet {
   animation: sheetin 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .modal .mclose {
@@ -1008,7 +1017,7 @@ header.scrolled {
   line-height: 1;
 }
 #cartBtn .n.pop {
-  animation: pop var(--digit-dur) cubic-bezier(0.34, 1.45, 0.64, 1);
+  animation: pop var(--digit-dur) cubic-bezier(0.22, 1, 0.36, 1);
 }
 .trust li {
   background: var(--sf);
@@ -1129,7 +1138,7 @@ header.scrolled {
 }
 .q output.pop {
   display: inline-block;
-  animation: pop var(--digit-dur) cubic-bezier(0.34, 1.45, 0.64, 1);
+  animation: pop var(--digit-dur) cubic-bezier(0.22, 1, 0.36, 1);
 }
 form {
   box-shadow: var(--shadow);
@@ -1597,4 +1606,63 @@ body {
 }
 .btn.buy:disabled::after {
   display: none;
+}
+
+/* Overdrive: browser-native motion — View Transitions + scroll timelines.
+   Every effect degrades: no VT support -> the old cssin class animations and
+   IntersectionObserver reveals; no scroll timelines -> the same fallback. */
+
+html {
+  scrollbar-gutter: stable; /* modal scroll-lock must not shift the page */
+}
+
+.flycan {
+  position: fixed;
+  z-index: 60;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--bd);
+  object-fit: contain;
+  box-shadow: var(--shadow);
+  pointer-events: none;
+}
+
+/* Theme switch sweeps a circle out of the toggle (typed VT only) */
+html:active-view-transition-type(theme)::view-transition-old(root),
+html:active-view-transition-type(theme)::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html:active-view-transition-type(theme)::view-transition-new(root) {
+  animation: reveal-circle 400ms var(--resize-ease) both;
+}
+@keyframes reveal-circle {
+  from {
+    clip-path: circle(0px at var(--tt-x, 90%) var(--tt-y, 4%));
+  }
+  to {
+    clip-path: circle(150% at var(--tt-x, 90%) var(--tt-y, 4%));
+  }
+}
+
+/* Scroll-driven section reveals (Chrome 115+, Safari 26+, Firefox 144+) */
+@supports (animation-timeline: view()) {
+  .rv {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 18%;
+  }
+  /* Hero showcase eases away with the fold for depth */
+  #showcase {
+    animation: parallax-ease linear both;
+    animation-timeline: view();
+    animation-range: exit 0% exit 90%;
+  }
+}
+@keyframes parallax-ease {
+  to {
+    transform: translateY(-26px) scale(0.98);
+  }
 }
