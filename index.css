@@ -1352,3 +1352,101 @@ body {
     gap: 6px;
   }
 }
+
+/* Trust cluster: who runs SaoudaShop + real numbers + copyable number */
+.proofs {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  align-items: stretch;
+}
+.proofs > div {
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+}
+.proofs > div b {
+  font: 800 1.5rem "Baloo 2";
+}
+.proofs > div span {
+  color: var(--mu);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.wacopy {
+  position: relative;
+  font: inherit;
+  color: var(--tx);
+  cursor: pointer;
+  text-align: left;
+  border: 2px solid var(--wa);
+  background: var(--sf);
+  padding: 14px 46px 14px 16px;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+}
+.wacopy b {
+  font: 800 1.5rem "Baloo 2";
+  color: var(--wa);
+}
+.wacopy > span {
+  color: var(--mu);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.wacopy i {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  translate: 0 -50%;
+  font-size: 1.3rem;
+  display: inline-flex;
+  color: var(--wa);
+}
+.wacopy .i-done {
+  display: none;
+}
+.wacopy.copied .i-copy {
+  display: none;
+}
+.wacopy.copied .i-done {
+  display: inline-flex;
+}
+.wacopy:hover {
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.2);
+}
+#testi {
+  margin-top: 30px;
+}
+#testi[hidden] {
+  display: none;
+}
+#testi h3 {
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+}
+#testiList {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+#testiList figure {
+  margin: 0;
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: 18px;
+  padding: 16px;
+}
+#testiList blockquote {
+  margin: 0 0 8px;
+}
+#testiList figcaption {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mu);
+}

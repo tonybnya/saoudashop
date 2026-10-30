@@ -9,10 +9,14 @@ const WA = "237694639475",
   CONTACT_EMAIL = "saoudayazieya@gmail.com";
 
 let P = [];
-let T = {};
+let T = [];
+let TE = [];
 
 const $ = (s) => document.querySelector(s);
 const fmt = (n) => n.toLocaleString("fr-FR").replace(/\u202f/g, " ") + " FCFA";
+// Display form of WA (e.g. "+237 6 94 63 94 75"), derived so WA stays single source.
+const waFmt = () =>
+  "+" + WA.replace(/(\d{3})(\d)(\d{2})(\d{2})(\d{2})(\d{2})$/, "$1 $2 $3 $4 $5 $6");
 
 let lang = "fr",
   filter = 0,
@@ -135,6 +139,9 @@ function render() {
   document
     .querySelectorAll("[data-wa=hello]")
     .forEach((a) => (a.href = wa(t("hello"))));
+  const wn = $("#waNum");
+  if (wn) wn.textContent = waFmt();
+  renderTesti();
   $("#fb").href = FB;
   $("#call").href = "tel:+" + WA;
   if ($("#fbF")) $("#fbF").href = FB;
@@ -151,6 +158,19 @@ function lines() {
   return P.filter((p) => cart[p.id]).map(
     (p) => `${cart[p.id]} × ${p.n} (${p.w})`,
   );
+}
+
+// shortcut: testimonial text is injected raw (our own file, we author it).
+// Escape the fields only if quotes ever come from an outside source.
+function renderTesti() {
+  const box = $("#testi"),
+    list = $("#testiList");
+  if (!box || !list) return;
+  list.innerHTML = TE.map(
+    (x) =>
+      `<figure><blockquote>${x.text}</blockquote><figcaption>${x.name}${x.city ? " · " + x.city : ""}</figcaption></figure>`,
+  ).join("");
+  box.hidden = !TE.length;
 }
 
 function count() {
@@ -325,6 +345,27 @@ $("#theme").onclick = () => {
   syncThemeIcon();
 };
 
+$("#waCopy").onclick = async () => {
+  try {
+    await navigator.clipboard.writeText("+" + WA);
+  } catch (e) {
+    // clipboard API blocked (file://, http): textarea fallback
+    const ta = document.createElement("textarea");
+    ta.value = "+" + WA;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.append(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+  }
+  const b = $("#waCopy");
+  b.classList.add("copied");
+  b.setAttribute("aria-label", t("copied"));
+  clearTimeout(b._t);
+  b._t = setTimeout(() => b.classList.remove("copied"), 1600);
+};
+
 $("#order").onsubmit = (e) => {
   e.preventDefault();
   const n = count();
@@ -383,7 +424,7 @@ $("#contactF").onsubmit = async (e) => {
 
 async function boot() {
   try {
-    const [pr, tr] = await Promise.all([
+    const [pr, tr, te] = await Promise.all([
       fetch("data/products.json").then((r) => {
         if (!r.ok) throw new Error("products " + r.status);
         return r.json();
@@ -392,9 +433,14 @@ async function boot() {
         if (!r.ok) throw new Error("translations " + r.status);
         return r.json();
       }),
+      // Optional: missing or invalid file just hides the testimonials block.
+      fetch("data/testimonials.json")
+        .then((r) => (r.ok ? r.json() : null))
+        .catch(() => null),
     ]);
     P = pr;
     T = tr;
+    TE = Array.isArray(te) ? te : [];
     for (const id of Object.keys(cart)) {
       const p = P.find((x) => x.id === id);
       if (!p || p.stock === "out") delete cart[id];
