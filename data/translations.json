@@ -2,7 +2,7 @@
   "fr": {
     "brand": "SaoudaShop",
     "price": "Toutes les boîtes à 5 000 FCFA",
-    "h1": "Céréales Nestlé pour bébé, source de fer et de vitamines, livrées à Douala, ou expédiées partout au Cameroun",
+    "h1": "Céréales bébé Nestlé et Naturnes, source de fer et de vitamines, livrées à Douala, ou expédiées partout au Cameroun",
     "lead": "Vous choisissez la boîte selon l'âge, un message WhatsApp et elle part chez vous : paiement en espèces, MoMo ou Orange Money à la réception. Expédition possible partout au Cameroun.",
     "ctaWa": "Commander sur WhatsApp",
     "ctaCat": "Voir les céréales",
@@ -56,7 +56,7 @@
     "faq": [
       [
         "Les produits sont-ils authentiques ?",
-        "Ce sont des céréales Nestlé importées de France, vendues dans leur boîte d'origine. Nous contrôlons la date de péremption avant chaque livraison."
+        "Ce sont des céréales Nestlé et Naturnes importées de France, vendues dans leur boîte d'origine. Nous contrôlons la date de péremption avant chaque livraison."
       ],
       [
         "Comment payer ?",
@@ -82,7 +82,7 @@
     "conBtn": "Envoyer le message",
     "fb": "Voir notre page Facebook",
     "call": "Appeler",
-    "disc": "Revendeur indépendant, non affilié à Nestlé. Nestlé, Babicao, Babimiel, Babivanille et P'tite Céréale sont des marques de leurs propriétaires.",
+    "disc": "Revendeur indépendant, non affilié à Nestlé ou à Naturnes. Nestlé, Babicao, Babimiel, Babivanille, P'tite Céréale et Naturnes sont des marques de leurs propriétaires.",
     "footTag": "Céréales livrées à Douala",
     "rights": "© {y} SaoudaShop. Tous droits réservés.",
     "disc2": "Les informations d'âge et de composition sont celles figurant sur les boîtes. Elles ne remplacent pas l'avis d'un professionnel de santé.",
@@ -104,7 +104,7 @@
   "en": {
     "brand": "SaoudaShop",
     "price": "Every box at 5,000 FCFA",
-    "h1": "Nestlé baby cereals, a source of iron and vitamins, delivered in Douala, or shipped anywhere in Cameroon",
+    "h1": "Nestlé and Naturnes baby cereals, a source of iron and vitamins, delivered in Douala, or shipped anywhere in Cameroon",
     "lead": "Pick the box for your baby's age, send one WhatsApp message and it leaves for your door: pay cash, MoMo or Orange Money on receipt. Shipping across Cameroon available.",
     "ctaWa": "Order on WhatsApp",
     "ctaCat": "See the cereals",
@@ -158,7 +158,7 @@
     "faq": [
       [
         "Are the products genuine?",
-        "They are Nestlé cereals imported from France, sold in their original box. We check the expiry date before every delivery."
+        "They are Nestlé and Naturnes cereals imported from France, sold in their original box. We check the expiry date before every delivery."
       ],
       [
         "How do I pay?",
@@ -184,7 +184,7 @@
     "conBtn": "Send message",
     "fb": "Visit our Facebook page",
     "call": "Call",
-    "disc": "Independent reseller, not affiliated with Nestlé. Nestlé, Babicao, Babimiel, Babivanille and P'tite Céréale are trademarks of their owners.",
+    "disc": "Independent reseller, not affiliated with Nestlé or Naturnes. Nestlé, Babicao, Babimiel, Babivanille, P'tite Céréale and Naturnes are trademarks of their owners.",
     "footTag": "Baby cereals delivered in Douala",
     "rights": "© {y} SaoudaShop. All rights reserved.",
     "disc2": "Age and composition details are those printed on the boxes. They do not replace advice from a health professional.",
