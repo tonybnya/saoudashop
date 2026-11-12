@@ -1,5 +1,71 @@
 [
   {
+    "id": "nv",
+    "n": "Naturnes vanille",
+    "c": "linear-gradient(160deg,#8fd0f0,#e5b84d)",
+    "img": "assets/cereales/naturnes-ptite-cereale-cereales-completes-vanille-boite.webp",
+    "fiche": "assets/cereales/naturnes-ptite-cereale-cereales-completes-vanille-fiche.webp",
+    "age": 6,
+    "w": "415 g",
+    "b": 23,
+    "pct": 96,
+    "fr": "Vanille, céréales complètes",
+    "en": "Vanilla, whole grains",
+    "ing": {
+      "fr": "Farine 96 % (blé diastasé, blé, blé complet 23 %, avoine complète 10 %, maïs, seigle, épeautre, riz, triticale), huiles végétales (colza, tournesol oléique, tournesol), minéraux (carbonate de calcium, sulfate ferreux, sulfate de zinc, iodure de potassium), vitamines (A, B1, B3, B6, B9, C, D, E), arôme naturel de vanille. Contient : gluten. Peut contenir des traces de lait.",
+      "en": "Flour 96% (diastatic wheat, wheat, whole wheat 23%, whole oat 10%, maize, rye, spelt, rice, triticale), vegetable oils (rapeseed, high-oleic sunflower, sunflower), minerals (calcium carbonate, ferrous sulfate, zinc sulfate, potassium iodide), vitamins (A, B1, B3, B6, B9, C, D, E), natural vanilla flavouring. Contains: gluten. May contain traces of milk."
+    },
+    "prep": {
+      "fr": "3 cuillères (1 cuillère = 6 g) dans 210 ml du lait habituel dès 6 mois, ou 4 cuillères dans 210 ml dès 8 mois.",
+      "en": "3 spoons (1 spoon = 6 g) into 210 ml of usual milk from 6 months, or 4 spoons into 210 ml from 8 months."
+    },
+    "stock": "in"
+  },
+  {
+    "id": "n8",
+    "n": "Naturnes 8 céréales",
+    "c": "linear-gradient(160deg,#7bc4e8,#2e6b3f)",
+    "img": "assets/cereales/naturnes-ptite-cereale-cereales-completes-8-cereales-boite.webp",
+    "fiche": "assets/cereales/naturnes-ptite-cereale-cereales-completes-8-cereales-fiche.webp",
+    "age": 6,
+    "w": "415 g",
+    "b": 23,
+    "pct": 97,
+    "fr": "8 céréales, céréales complètes",
+    "en": "8 cereals, whole grains",
+    "ing": {
+      "fr": "Farine 97 % (blé diastasé, blé, blé complet 23 %, avoine complète 10 %, maïs, seigle, orge, épeautre, riz, triticale), minéraux (carbonate de calcium, sulfate ferreux, sulfate de zinc, iodure de potassium), vitamines (A, B1, B3, B6, B9, C, D, E). Contient : gluten. Peut contenir des traces de lait.",
+      "en": "Flour 97% (diastatic wheat, wheat, whole wheat 23%, whole oat 10%, maize, rye, barley, spelt, rice, triticale), minerals (calcium carbonate, ferrous sulfate, zinc sulfate, potassium iodide), vitamins (A, B1, B3, B6, B9, C, D, E). Contains: gluten. May contain traces of milk."
+    },
+    "prep": {
+      "fr": "3 cuillères (1 cuillère = 6 g) dans 210 ml du lait habituel dès 6 mois, ou 4 cuillères dans 210 ml dès 8 mois.",
+      "en": "3 spoons (1 spoon = 6 g) into 210 ml of usual milk from 6 months, or 4 spoons into 210 ml from 8 months."
+    },
+    "stock": "in"
+  },
+  {
+    "id": "nb",
+    "n": "Naturnes biscuit",
+    "c": "linear-gradient(160deg,#7bc4e8,#e07b16)",
+    "img": "assets/cereales/naturnes-ptite-cereale-cereales-completes-saveur-biscuit-boite.webp",
+    "fiche": "assets/cereales/naturnes-ptite-cereale-cereales-completes-saveur-biscuit-fiche.webp",
+    "age": 6,
+    "w": "415 g",
+    "b": 23,
+    "pct": 96,
+    "fr": "Saveur biscuit, céréales complètes",
+    "en": "Biscuit flavour, whole grains",
+    "ing": {
+      "fr": "Farine 96 % (blé diastasé, blé, blé complet 23 %, avoine complète 10 %, maïs, seigle, épeautre, riz, triticale), huiles végétales (colza, tournesol oléique, tournesol), minéraux (carbonate de calcium, sulfate ferreux, sulfate de zinc, iodure de potassium), vitamines (A, B1, B3, B6, B9, C, D, E), arôme naturel. Contient : gluten. Peut contenir des traces de lait.",
+      "en": "Flour 96% (diastatic wheat, wheat, whole wheat 23%, whole oat 10%, maize, rye, spelt, rice, triticale), vegetable oils (rapeseed, high-oleic sunflower, sunflower), minerals (calcium carbonate, ferrous sulfate, zinc sulfate, potassium iodide), vitamins (A, B1, B3, B6, B9, C, D, E), natural flavouring. Contains: gluten. May contain traces of milk."
+    },
+    "prep": {
+      "fr": "3 cuillères (1 cuillère = 6 g) dans 210 ml du lait habituel dès 6 mois, ou 4 cuillères dans 210 ml dès 8 mois.",
+      "en": "3 spoons (1 spoon = 6 g) into 210 ml of usual milk from 6 months, or 4 spoons into 210 ml from 8 months."
+    },
+    "stock": "in"
+  },
+  {
     "id": "cao",
     "n": "Babicao",
     "c": "linear-gradient(160deg,#7a3b1d,#3f1c0d)",
@@ -19,7 +85,7 @@
       "fr": "4 cuillères (1 cuillère = 3 g) dans 200 ml du lait habituel dès 10 mois, ou 5 cuillères dans 240 ml dès 12 mois. Lait chaud ou froid.",
       "en": "4 spoons (1 spoon = 3 g) into 200 ml of usual milk from 10 months, or 5 spoons into 240 ml from 12 months. Milk hot or cold."
     },
-    "stock": "in",
+    "stock": "out",
     "stage": "assets/cereales/nestle-babicao-boite-stage.webp"
   },
   {
@@ -42,7 +108,7 @@
       "fr": "4 cuillères (1 cuillère = 3 g) dans 200 ml du lait habituel dès 10 mois, ou 5 cuillères dans 240 ml dès 12 mois. Lait chaud ou froid.",
       "en": "4 spoons (1 spoon = 3 g) into 200 ml of usual milk from 10 months, or 5 spoons into 240 ml from 12 months. Milk hot or cold."
     },
-    "stock": "in",
+    "stock": "out",
     "stage": "assets/cereales/nestle-babimiel-boite-stage.webp"
   },
   {
@@ -65,7 +131,7 @@
       "fr": "4 cuillères (1 cuillère = 3 g) dans 200 ml du lait habituel dès 10 mois, ou 5 cuillères dans 240 ml dès 12 mois. Lait chaud ou froid.",
       "en": "4 spoons (1 spoon = 3 g) into 200 ml of usual milk from 10 months, or 5 spoons into 240 ml from 12 months. Milk hot or cold."
     },
-    "stock": "in",
+    "stock": "out",
     "stage": "assets/cereales/nestle-babivanille-boite-stage.webp"
   },
   {
